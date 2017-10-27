@@ -7,4 +7,4 @@ bigimg:
   - "/img/big-imgs/hawaii-research.jpeg" : "Hawaii Research"
  
 ---
-My research focus on XXX XXX XXX
+My research focus on **XXX XXX XXX**
