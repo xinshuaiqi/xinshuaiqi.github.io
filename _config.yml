@@ -26,7 +26,7 @@ navbar-links:
   About Me: "aboutme"
   Research: "research"
   Publication: "https://scholar.google.com/citations?user=Fw3jawUAAAAJ&hl=en/"
-  Chinese："chinese"
+  Other："chinese"
   Resources:
       - CGMonline: "http://cgmonline.co/"
 nav-search: "search"
