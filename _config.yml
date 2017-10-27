@@ -14,7 +14,7 @@ baseurl: ""
 # Of course don't forget to change the username and projectname to YOUR username and project
 
 # Name of website
-title: Xinshuai Qi's website ___
+title: Xinshuai Qi's website
 
 # Short description of your site
 description: Plant Evolutionary Genetics
@@ -26,10 +26,9 @@ navbar-links:
   About Me: "aboutme"
   Research: "research"
   Publication: "https://scholar.google.com/citations?user=Fw3jawUAAAAJ&hl=en/"
-  Chinese： "Chinese"
   Resources:
       - CGMonline: "http://cgmonline.co/"
-nav-search: "search"  
+nav-search: "search"
 
 # Image to show in the navigation bar - image must be a square (width = height)
 # Remove this parameter if you don't want an image in the navbar
@@ -37,7 +36,7 @@ avatar: "/img/IMG_6914.JPG"
 
 # If you want to have an image logo in the top-left corner instead of the title text,
 # then specify the following parameter
-# title-img: /path/to/image 
+# title-img: /path/to/image
 
 # --- Background colour/image options --- #
 
