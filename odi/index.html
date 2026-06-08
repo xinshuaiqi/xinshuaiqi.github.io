@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Orchestrated Distributed Intelligence — TLDR</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<script>
+  tailwind.config = { theme: { extend: { fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] } } } }
+</script>
+<style>
+  .arrow-flow::after{content:"";}
+</style>
+</head>
+<body class="bg-gray-50 text-gray-900 font-sans min-h-screen">
+
+<!-- ============ HEADER ============ -->
+<div class="bg-black text-white px-8 py-7">
+  <div class="max-w-[1200px] mx-auto">
+    <p class="text-[#86BC25] text-xs font-semibold tracking-widest uppercase mb-2"><i class="fa-solid fa-bolt mr-1"></i>Paper, demystified &middot; 3-min read</p>
+    <h1 class="text-3xl md:text-4xl font-bold leading-tight">
+      <i class="fa-solid fa-diagram-project text-[#86BC25] mr-2"></i>Orchestrated Distributed Intelligence
+    </h1>
+    <p class="text-gray-300 text-lg mt-1 font-medium">Why the future of AI is <span class="text-[#86BC25]">systems</span>, not solo agents</p>
+    <div class="flex flex-wrap gap-x-6 gap-y-1 mt-4 text-sm text-gray-400">
+      <span><i class="fa-solid fa-user-pen mr-1"></i>Krti Tallam &middot; UC Berkeley EECS</span>
+      <span><i class="fa-regular fa-calendar mr-1"></i>March 2025</span>
+      <span><i class="fa-solid fa-book mr-1"></i>arXiv:2503.13754v2</span>
+      <span><i class="fa-solid fa-scale-balanced mr-1"></i>CC BY 4.0</span>
+    </div>
+  </div>
+</div>
+
+<div class="max-w-[1200px] mx-auto px-8 py-8">
+
+  <!-- ============ THE ONE-LINE TLDR ============ -->
+  <div class="bg-[#86BC25]/10 border border-[#86BC25]/30 rounded-xl p-6 mb-10">
+    <p class="text-[#2C5234] text-xs font-bold tracking-widest uppercase mb-2"><i class="fa-solid fa-quote-left mr-1"></i>The whole paper in one sentence</p>
+    <p class="text-xl md:text-2xl font-semibold text-gray-900 leading-snug">
+      The real breakthrough in agentic AI isn't a smarter <em>individual</em> agent &mdash; it's
+      <span class="text-[#86BC25]">orchestrating many agents together with human judgment</span>
+      into one adaptive system that <em>acts</em>, not just records.
+    </p>
+  </div>
+
+  <!-- ============ DIAGRAM 1: THE PARADIGM SHIFT ============ -->
+  <section class="mb-12">
+    <h2 class="text-2xl font-bold text-gray-900 mb-1"><i class="fa-solid fa-arrows-turn-right text-[#0D8390] mr-2"></i>The shift in framing</h2>
+    <p class="text-gray-600 text-sm mb-5">Stop asking &ldquo;how smart is one agent?&rdquo; Start asking &ldquo;how well does the whole network coordinate?&rdquo;</p>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-4 items-center">
+      <!-- BEFORE -->
+      <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
+        <p class="text-gray-400 text-xs font-bold uppercase tracking-wider mb-3"><i class="fa-solid fa-xmark-circle mr-1"></i>Old paradigm</p>
+        <h3 class="text-base font-bold text-gray-900 mb-4">Isolated autonomous agents</h3>
+        <div class="flex flex-wrap gap-3">
+          <span class="w-14 h-14 rounded-lg bg-gray-100 text-gray-400 flex items-center justify-center text-xl border border-gray-200"><i class="fa-solid fa-robot"></i></span>
+          <span class="w-14 h-14 rounded-lg bg-gray-100 text-gray-400 flex items-center justify-center text-xl border border-gray-200"><i class="fa-solid fa-robot"></i></span>
+          <span class="w-14 h-14 rounded-lg bg-gray-100 text-gray-400 flex items-center justify-center text-xl border border-gray-200"><i class="fa-solid fa-robot"></i></span>
+        </div>
+        <p class="text-gray-500 text-xs mt-4 leading-relaxed">Each optimizes a narrow goal in isolation. Outputs are fragmented, sometimes conflicting. No shared context.</p>
+      </div>
+
+      <!-- ARROW -->
+      <div class="flex md:flex-col items-center justify-center text-[#86BC25] py-2">
+        <i class="fa-solid fa-arrow-right md:hidden text-2xl"></i>
+        <i class="fa-solid fa-arrow-right-long hidden md:block text-3xl"></i>
+      </div>
+
+      <!-- AFTER -->
+      <div class="bg-[#2C5234] border border-[#2C5234] rounded-xl p-6 shadow-sm text-white">
+        <p class="text-[#86BC25] text-xs font-bold uppercase tracking-wider mb-3"><i class="fa-solid fa-circle-check mr-1"></i>New paradigm &mdash; ODI</p>
+        <h3 class="text-base font-bold mb-4">An orchestrated system of agents + humans</h3>
+        <div class="relative flex items-center justify-center gap-3">
+          <span class="w-12 h-12 rounded-lg bg-[#86BC25]/20 text-[#86BC25] flex items-center justify-center text-lg"><i class="fa-solid fa-robot"></i></span>
+          <span class="w-14 h-14 rounded-lg bg-[#86BC25] text-white flex items-center justify-center text-xl shadow-lg"><i class="fa-solid fa-sitemap"></i></span>
+          <span class="w-12 h-12 rounded-lg bg-[#86BC25]/20 text-[#86BC25] flex items-center justify-center text-lg"><i class="fa-solid fa-user"></i></span>
+        </div>
+        <p class="text-gray-300 text-xs mt-4 leading-relaxed">A central <strong class="text-white">orchestration layer</strong> coordinates specialized agents and human oversight &mdash; the whole exceeds the sum of its parts.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ DIAGRAM 2: THE EVOLUTION LADDER ============ -->
+  <section class="mb-12">
+    <h2 class="text-2xl font-bold text-gray-900 mb-1"><i class="fa-solid fa-stairs text-[#0D8390] mr-2"></i>The evolution: from record-keeping to action</h2>
+    <p class="text-gray-600 text-sm mb-6">Four stages. Each fixes the limit of the one before. ODI lives at the top.</p>
+
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+      <!-- Stage 1 -->
+      <div class="bg-white border border-gray-200 rounded-xl p-5 shadow-sm flex flex-col relative">
+        <span class="absolute -top-3 left-5 bg-gray-300 text-white text-xs font-bold px-2 py-0.5 rounded-full">1</span>
+        <span class="bg-gray-100 text-gray-500 text-xl w-12 h-12 rounded-lg flex items-center justify-center mb-3"><i class="fa-solid fa-database"></i></span>
+        <h3 class="text-base font-bold text-gray-900">Systems of Record</h3>
+        <p class="text-gray-400 text-xs mb-2">Static digital systems</p>
+        <p class="text-gray-600 text-xs leading-relaxed flex-1">Store &amp; retrieve data. Databases, spreadsheets. Accurate but passive &mdash; they don't decide anything.</p>
+      </div>
+      <!-- Stage 2 -->
+      <div class="bg-white border border-gray-200 rounded-xl p-5 shadow-sm flex flex-col relative">
+        <span class="absolute -top-3 left-5 bg-[#0D8390] text-white text-xs font-bold px-2 py-0.5 rounded-full">2</span>
+        <span class="bg-[#0D8390]/10 text-[#0D8390] text-xl w-12 h-12 rounded-lg flex items-center justify-center mb-3"><i class="fa-solid fa-gears"></i></span>
+        <h3 class="text-base font-bold text-gray-900">Systems of Automation</h3>
+        <p class="text-gray-400 text-xs mb-2">Robotic Process Automation</p>
+        <p class="text-gray-600 text-xs leading-relaxed flex-1">Execute fixed, rule-based tasks fast and cheaply. But rigid &mdash; no learning, no handling exceptions.</p>
+      </div>
+      <!-- Stage 3 -->
+      <div class="bg-white border border-gray-200 rounded-xl p-5 shadow-sm flex flex-col relative">
+        <span class="absolute -top-3 left-5 bg-[#43B02A] text-white text-xs font-bold px-2 py-0.5 rounded-full">3</span>
+        <span class="bg-[#43B02A]/10 text-[#43B02A] text-xl w-12 h-12 rounded-lg flex items-center justify-center mb-3"><i class="fa-solid fa-robot"></i></span>
+        <h3 class="text-base font-bold text-gray-900">Systems of Agents</h3>
+        <p class="text-gray-400 text-xs mb-2">Agentic AI</p>
+        <p class="text-gray-600 text-xs leading-relaxed flex-1">Agents decide, adapt, and learn from real-time data. Powerful &mdash; but isolated and hard to align.</p>
+      </div>
+      <!-- Stage 4 -->
+      <div class="bg-[#86BC25]/10 border-2 border-[#86BC25] rounded-xl p-5 shadow-sm flex flex-col relative">
+        <span class="absolute -top-3 left-5 bg-[#86BC25] text-white text-xs font-bold px-2 py-0.5 rounded-full">4</span>
+        <span class="bg-[#86BC25] text-white text-xl w-12 h-12 rounded-lg flex items-center justify-center mb-3"><i class="fa-solid fa-bolt"></i></span>
+        <h3 class="text-base font-bold text-gray-900">Systems of Action</h3>
+        <p class="text-[#2C5234] text-xs font-semibold mb-2">Integrated &amp; dynamic &mdash; this is ODI</p>
+        <p class="text-gray-700 text-xs leading-relaxed flex-1">Agents + orchestration + humans, fused. Real-time, proactive, continuously self-optimizing.</p>
+      </div>
+    </div>
+    <p class="text-center text-gray-400 text-xs mt-4"><i class="fa-solid fa-arrow-right-long mr-1 text-[#86BC25]"></i>Each stage layers onto the last &mdash; from <em>passive</em> &rarr; <em>reactive</em> &rarr; <em>adaptive</em> &rarr; <em>proactive</em></p>
+  </section>
+
+  <!-- ============ DIAGRAM 3: THE ODI ARCHITECTURE ============ -->
+  <section class="mb-12">
+    <h2 class="text-2xl font-bold text-gray-900 mb-1"><i class="fa-solid fa-network-wired text-[#0D8390] mr-2"></i>How ODI actually works</h2>
+    <p class="text-gray-600 text-sm mb-6">An orchestration layer sits in the middle, binding distributed AI to human oversight through continuous feedback.</p>
+
+    <div class="bg-white border border-gray-200 rounded-xl p-6 md:p-8 shadow-sm">
+      <!-- Human layer -->
+      <div class="bg-[#2C5234] text-white rounded-lg px-5 py-4 text-center mb-3">
+        <p class="font-bold text-sm"><i class="fa-solid fa-people-group text-[#86BC25] mr-2"></i>Human Intelligence</p>
+        <p class="text-gray-300 text-xs mt-0.5">Context &middot; creativity &middot; ethics &middot; strategic judgment</p>
+      </div>
+      <div class="flex justify-center text-[#86BC25] mb-3"><i class="fa-solid fa-arrows-up-down"></i></div>
+
+      <!-- Orchestration layer -->
+      <div class="bg-[#86BC25] text-white rounded-lg px-5 py-5 text-center mb-3 shadow-md">
+        <p class="font-bold text-base"><i class="fa-solid fa-sitemap mr-2"></i>Orchestration Layer</p>
+        <p class="text-white/90 text-xs mt-1">Coordinates agents &middot; routes tasks &middot; runs multi-loop feedback &middot; aggregates high cognitive density</p>
+      </div>
+      <div class="flex justify-center text-[#86BC25] mb-3"><i class="fa-solid fa-arrows-up-down"></i></div>
+
+      <!-- Agents layer -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+        <div class="bg-[#0D8390]/10 border border-[#0D8390]/30 rounded-lg p-3 text-center">
+          <i class="fa-solid fa-comments text-[#0D8390] text-lg"></i>
+          <p class="text-gray-700 text-xs font-medium mt-1">Language agent</p>
+        </div>
+        <div class="bg-[#0D8390]/10 border border-[#0D8390]/30 rounded-lg p-3 text-center">
+          <i class="fa-solid fa-eye text-[#0D8390] text-lg"></i>
+          <p class="text-gray-700 text-xs font-medium mt-1">Vision agent</p>
+        </div>
+        <div class="bg-[#0D8390]/10 border border-[#0D8390]/30 rounded-lg p-3 text-center">
+          <i class="fa-solid fa-chart-line text-[#0D8390] text-lg"></i>
+          <p class="text-gray-700 text-xs font-medium mt-1">Forecasting agent</p>
+        </div>
+        <div class="bg-[#0D8390]/10 border border-[#0D8390]/30 rounded-lg p-3 text-center">
+          <i class="fa-solid fa-robot text-[#0D8390] text-lg"></i>
+          <p class="text-gray-700 text-xs font-medium mt-1">Action agent</p>
+        </div>
+      </div>
+      <p class="text-center text-gray-400 text-xs mt-3"><i class="fa-solid fa-layer-group mr-1"></i>Distributed, specialized AI agents</p>
+
+      <!-- Feedback loop note -->
+      <div class="mt-5 bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 flex items-center gap-3">
+        <i class="fa-solid fa-arrows-rotate text-[#86BC25] text-xl"></i>
+        <p class="text-gray-600 text-xs"><strong class="text-gray-800">Multi-loop feedback</strong> runs continuously across every layer &mdash; fast tactical loops correct the moment, slow strategic loops recalibrate the long game.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ DIAGRAM 4: THREE PILLARS ============ -->
+  <section class="mb-12">
+    <h2 class="text-2xl font-bold text-gray-900 mb-1"><i class="fa-solid fa-cubes text-[#0D8390] mr-2"></i>The three ingredients that make it work</h2>
+    <p class="text-gray-600 text-sm mb-6">ODI's special sauce &mdash; what separates a real system of action from a pile of chatbots.</p>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="bg-white border border-gray-200 rounded-xl p-5 shadow-sm flex flex-col">
+        <span class="bg-[#86BC25]/10 text-[#86BC25] text-xl w-12 h-12 rounded-lg flex items-center justify-center mb-3"><i class="fa-solid fa-brain"></i></span>
+        <h3 class="text-base font-bold text-gray-900 mb-1">Cognitive Density</h3>
+        <p class="text-gray-600 text-xs leading-relaxed">How much the system can understand <em>per moment</em> &mdash; fusing raw number-crunching with meaning-making. Not just compute, but quality of interpretation.</p>
+      </div>
+      <div class="bg-white border border-gray-200 rounded-xl p-5 shadow-sm flex flex-col">
+        <span class="bg-[#0D8390]/10 text-[#0D8390] text-xl w-12 h-12 rounded-lg flex items-center justify-center mb-3"><i class="fa-solid fa-arrows-spin"></i></span>
+        <h3 class="text-base font-bold text-gray-900 mb-1">Multi-Loop Flow</h3>
+        <p class="text-gray-600 text-xs leading-relaxed">Nested feedback loops at different speeds &mdash; instant reflexes and long-term strategy running at once, so the system self-corrects in real time.</p>
+      </div>
+      <div class="bg-white border border-gray-200 rounded-xl p-5 shadow-sm flex flex-col">
+        <span class="bg-[#2C5234]/10 text-[#2C5234] text-xl w-12 h-12 rounded-lg flex items-center justify-center mb-3"><i class="fa-solid fa-plug-circle-bolt"></i></span>
+        <h3 class="text-base font-bold text-gray-900 mb-1">Tool Dependency</h3>
+        <p class="text-gray-600 text-xs leading-relaxed">Specialized tools wired into one ecosystem via shared interfaces &mdash; an interconnected web, like a natural ecosystem, not a pile of silos.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WHY IT MATTERS / ECONOMIC ============ -->
+  <section class="mb-12">
+    <h2 class="text-2xl font-bold text-gray-900 mb-1"><i class="fa-solid fa-sack-dollar text-[#0D8390] mr-2"></i>Why it matters</h2>
+    <p class="text-gray-600 text-sm mb-6">The prize the paper points at.</p>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="bg-[#86BC25]/10 border border-[#86BC25]/30 rounded-xl p-6 text-center">
+        <p class="text-4xl font-bold text-[#2C5234]">~50%</p>
+        <p class="text-gray-600 text-xs mt-2 leading-relaxed">of US GDP still runs on processes that are up to <strong>90% manual labor</strong> &mdash; a vast target for orchestrated AI.</p>
+      </div>
+      <div class="bg-[#0D8390]/10 border border-[#0D8390]/30 rounded-xl p-6 text-center">
+        <p class="text-4xl font-bold text-[#0D8390]">25&ndash;30%</p>
+        <p class="text-gray-600 text-xs mt-2 leading-relaxed">efficiency gains &amp; downtime cuts cited in manufacturing case studies once agents move from automation to <strong>action</strong>.</p>
+      </div>
+      <div class="bg-[#2C5234]/10 border border-[#2C5234]/30 rounded-xl p-6 text-center">
+        <p class="text-4xl font-bold text-[#2C5234]"><i class="fa-solid fa-user-gear"></i></p>
+        <p class="text-gray-600 text-xs mt-2 leading-relaxed">Humans freed from routine work get redeployed to <strong>creativity, ethics &amp; strategy</strong> &mdash; AI amplifies, doesn't replace.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CHALLENGES ============ -->
+  <section class="mb-12">
+    <h2 class="text-2xl font-bold text-gray-900 mb-1"><i class="fa-solid fa-triangle-exclamation text-[#0D8390] mr-2"></i>The hard parts (the paper is honest about these)</h2>
+    <p class="text-gray-600 text-sm mb-6">Getting to systems of action isn't a software install.</p>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <ul class="bg-white border border-gray-200 rounded-xl p-5 shadow-sm text-gray-600 text-sm space-y-2.5">
+        <li><i class="fa-solid fa-screwdriver-wrench text-[#0D8390] mr-2"></i><strong>Legacy systems</strong> weren't built for real-time AI &mdash; expensive to retrofit.</li>
+        <li><i class="fa-solid fa-users-slash text-[#0D8390] mr-2"></i><strong>Cultural resistance</strong> &mdash; fear of job loss stalls more transformations than tech does.</li>
+        <li><i class="fa-solid fa-diagram-project text-[#0D8390] mr-2"></i><strong>Scaling coordination</strong> &mdash; more agents means more synchronization &amp; latency to tame.</li>
+      </ul>
+      <ul class="bg-white border border-gray-200 rounded-xl p-5 shadow-sm text-gray-600 text-sm space-y-2.5">
+        <li><i class="fa-solid fa-shield-halved text-[#86BC25] mr-2"></i><strong>Safeguards</strong> &mdash; ethics guidelines, audits, governance boards, incident response.</li>
+        <li><i class="fa-solid fa-eye text-[#86BC25] mr-2"></i><strong>Transparency</strong> &mdash; opaque AI could concentrate power &amp; hollow out middle management.</li>
+        <li><i class="fa-solid fa-scale-unbalanced text-[#86BC25] mr-2"></i><strong>Equity</strong> &mdash; benefits must be shared, or AI widens economic inequality.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ DECISION: BUILD / BUY / REPURPOSE ============ -->
+  <section class="mb-12">
+    <h2 class="text-2xl font-bold text-gray-900 mb-1"><i class="fa-solid fa-code-branch text-[#0D8390] mr-2"></i>Practical roadmap: build, buy, or repurpose?</h2>
+    <p class="text-gray-600 text-sm mb-6">The paper's verdict: a <strong>hybrid</strong> approach usually wins.</p>
+    <div class="overflow-x-auto">
+      <table class="w-full text-sm border-collapse">
+        <thead>
+          <tr>
+            <th class="bg-[#0D8390] text-white font-medium text-left px-4 py-2"><i class="fa-solid fa-route mr-1"></i>Approach</th>
+            <th class="bg-[#0D8390] text-white font-medium text-left px-4 py-2"><i class="fa-solid fa-thumbs-up mr-1"></i>Best for</th>
+            <th class="bg-[#0D8390] text-white font-medium text-left px-4 py-2"><i class="fa-solid fa-thumbs-down mr-1"></i>Watch out for</th>
+          </tr>
+        </thead>
+        <tbody class="bg-white">
+          <tr class="border-b border-[#86BC25]/30">
+            <td class="px-4 py-3 text-[#86BC25] font-medium"><i class="fa-solid fa-hammer mr-1"></i>Build in-house</td>
+            <td class="px-4 py-3 text-gray-600">Custom fit, IP edge, deep integration</td>
+            <td class="px-4 py-3 text-gray-600">Costly, slow, ongoing maintenance</td>
+          </tr>
+          <tr class="border-b border-[#86BC25]/30">
+            <td class="px-4 py-3 text-[#86BC25] font-medium"><i class="fa-solid fa-cart-shopping mr-1"></i>Buy off-the-shelf</td>
+            <td class="px-4 py-3 text-gray-600">Speed to market, proven &amp; reliable</td>
+            <td class="px-4 py-3 text-gray-600">Limited fit, vendor lock-in</td>
+          </tr>
+          <tr>
+            <td class="px-4 py-3 text-[#86BC25] font-medium"><i class="fa-solid fa-recycle mr-1"></i>Repurpose legacy</td>
+            <td class="px-4 py-3 text-gray-600">Low cost, smooth transition, reuses data</td>
+            <td class="px-4 py-3 text-gray-600">Technical debt, scalability limits</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ============ TAKEAWAYS ============ -->
+  <div class="bg-[#86BC25]/10 border border-[#86BC25]/30 rounded-xl p-6 mb-10">
+    <p class="text-[#2C5234] text-sm font-bold uppercase tracking-wider mb-3"><i class="fa-solid fa-lightbulb mr-2"></i>Three things to remember</p>
+    <ul class="text-gray-700 text-sm space-y-2">
+      <li><i class="fa-solid fa-1 text-[#86BC25] mr-2"></i>The unit of value is shifting from the <strong>agent</strong> to the <strong>orchestrated system</strong>.</li>
+      <li><i class="fa-solid fa-2 text-[#86BC25] mr-2"></i>The goal is a <strong>System of Action</strong> &mdash; AI that drives decisions, not just stores data.</li>
+      <li><i class="fa-solid fa-3 text-[#86BC25] mr-2"></i>Humans stay in the loop by design &mdash; orchestration <strong>augments</strong> judgment, it doesn't replace it.</li>
+    </ul>
+  </div>
+
+  <!-- ============ ACKNOWLEDGMENT ============ -->
+  <p class="text-center text-gray-500 text-sm mb-2"><i class="fa-solid fa-heart text-[#86BC25] mr-1"></i>Original work by Krti Tallam (UC Berkeley). This is an independent plain-language summary for learning.</p>
+
+  <!-- ============ FOOTER ============ -->
+  <p class="text-center text-gray-400 text-xs">
+    <i class="fa-solid fa-file-lines mr-1"></i>TLDR explainer
+    &middot; arXiv:2503.13754v2 &middot; CC BY 4.0
+    &middot; Source: <a href="https://arxiv.org/abs/2503.13754" target="_blank" class="text-gray-500 hover:text-[#86BC25] underline">arxiv.org/abs/2503.13754</a>
+    &middot; Summary by Xinqi &middot; <a href="mailto:xinqi@deloitte.com" class="text-gray-500 hover:text-[#86BC25]">xinqi@deloitte.com</a>
+  </p>
+
+</div>
+
+</body>
+</html>
