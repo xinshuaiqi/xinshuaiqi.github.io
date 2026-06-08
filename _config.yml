@@ -25,10 +25,10 @@ description: AI &amp; Data Consulting Leader | Generative &amp; Agentic AI | Ph.
 navbar-links:
   About Me: "aboutme"
   Research: "research"
-  Publication: "https://scholar.google.com/citations?user=Fw3jawUAAAAJ&hl=en/"
+  Publication: "publication"
+  CGM: "http://cgmonline.co/"
+  LinkedIn: "https://www.linkedin.com/in/xinshuaiqi"
   Other: "chinese"
-  Resources:
-      - CGMonline: "http://cgmonline.co/"
 nav-search: "search"
 
 # Image to show in the navigation bar - image must be a square (width = height)
