@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 1200px; height: 630px; overflow: hidden; position: relative;
+    font-family: 'Inter', system-ui, sans-serif;
+    background: #ffffff; color: #111827;
+  }
+  /* left accent bar */
+  .bar { position: absolute; left: 0; top: 0; bottom: 0; width: 16px; background: #2563eb; }
+  /* subtle node-network motif, right side */
+  .motif { position: absolute; right: 0; top: 0; width: 520px; height: 630px; opacity: 0.10; }
+  .wrap { padding: 0 96px; height: 100%; display: flex; flex-direction: column; justify-content: center; position: relative; z-index: 2; }
+  .eyebrow { color: #2563eb; font-weight: 600; font-size: 23px; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 26px; }
+  h1 { font-size: 86px; font-weight: 800; line-height: 1.0; letter-spacing: -0.025em; }
+  h1 .muted { color: #9ca3af; font-weight: 600; }
+  .role { color: #2563eb; font-size: 42px; font-weight: 700; margin-top: 22px; }
+  .tag { color: #4b5563; font-size: 27px; font-weight: 500; margin-top: 18px; }
+  .foot { position: absolute; bottom: 56px; left: 96px; right: 96px; display: flex; justify-content: space-between; align-items: center; }
+  .stats { color: #6b7280; font-size: 23px; font-weight: 500; }
+  .url { color: #9ca3af; font-size: 23px; font-weight: 600; }
+</style>
+</head>
+<body>
+  <div class="bar"></div>
+
+  <svg class="motif" viewBox="0 0 520 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g stroke="#2563eb" stroke-width="2">
+      <line x1="120" y1="120" x2="300" y2="80"/>
+      <line x1="300" y1="80" x2="440" y2="200"/>
+      <line x1="120" y1="120" x2="220" y2="300"/>
+      <line x1="220" y1="300" x2="440" y2="200"/>
+      <line x1="220" y1="300" x2="160" y2="500"/>
+      <line x1="160" y1="500" x2="380" y2="450"/>
+      <line x1="380" y1="450" x2="440" y2="200"/>
+      <line x1="300" y1="80" x2="220" y2="300"/>
+      <line x1="160" y1="500" x2="380" y2="560"/>
+    </g>
+    <g fill="#2563eb">
+      <circle cx="120" cy="120" r="12"/>
+      <circle cx="300" cy="80" r="16"/>
+      <circle cx="440" cy="200" r="20"/>
+      <circle cx="220" cy="300" r="22"/>
+      <circle cx="160" cy="500" r="14"/>
+      <circle cx="380" cy="450" r="18"/>
+      <circle cx="380" cy="560" r="11"/>
+    </g>
+  </svg>
+
+  <div class="wrap">
+    <div class="eyebrow">xinshuaiqi.github.io</div>
+    <h1>Xinshuai Qi <span class="muted">(Chee), Ph.D.</span></h1>
+    <div class="role">AI &amp; Data Consulting Leader</div>
+    <div class="tag">Generative &amp; Agentic AI &middot; Physical AI / Robotics &middot; MLOps</div>
+  </div>
+
+  <div class="foot">
+    <div class="stats">$50M+ delivered &middot; 20+ publications &middot; 4,000+ citations</div>
+    <div class="url"></div>
+  </div>
+</body>
+</html>
