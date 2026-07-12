@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Unified Enterprise ML Map — Xinshuai Qi, Ph.D.</title>
+<meta name="description" content="A production-grade framework mapping enterprise operational bottlenecks — front office to back office — to the exact ML, LLM, and agentic-orchestration architectures that resolve them.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The Unified Enterprise ML Map — Xinshuai Qi, Ph.D.">
+<meta property="og:description" content="Past the vendor hype, into the implementation pattern. Front Office · Supply Chain · Back Office · Platform Foundation.">
+<meta property="og:url" content="https://xinshuaiqi.github.io/ml-map/">
+<meta property="og:image" content="https://xinshuaiqi.github.io/img/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Unified Enterprise ML Map">
+<meta name="twitter:description" content="Production-grade ML architecture patterns from front to back office.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --accent:#4f46e5;
+  --accent-strong:#4338ca;
+  --accent-soft:#eef2ff;
+
+  --ink:#1c1917;
+  --ink-soft:#44403c;
+  --ink-mute:#78716c;
+  --line:#e7e5e4;
+  --line-soft:#f0efed;
+  --paper:#faf9f7;
+  --surface:#ffffff;
+  --surface-2:#f7f6f4;
+  --ink-dark:#0f0e0d;
+
+  --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --display:"Plus Jakarta Sans",var(--sans);
+  --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+
+  --maxw:1200px;
+  --radius:14px;
+  --radius-sm:9px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:152px}
+body{
+  font-family:var(--sans);
+  color:var(--ink);
+  background:var(--paper);
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+.container{max-width:var(--maxw);margin:0 auto;padding:0 40px}
+
+/* ---------- SITE NAV ---------- */
+.site-nav{
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:rgba(255,255,255,0.93);
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);
+}
+.site-nav-inner{
+  max-width:var(--maxw);
+  margin:0 auto;
+  padding:0 40px;
+  height:56px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+}
+.site-nav-brand{
+  font-weight:700;
+  font-size:15px;
+  color:var(--ink);
+  text-decoration:none;
+  white-space:nowrap;
+}
+.site-nav-brand:hover{color:var(--accent)}
+.site-nav-links{
+  display:flex;
+  flex-wrap:wrap;
+  gap:20px;
+  align-items:center;
+  justify-content:flex-end;
+}
+.site-nav-links a{
+  font-size:13.5px;
+  font-weight:500;
+  color:var(--ink-mute);
+  text-decoration:none;
+  white-space:nowrap;
+  transition:color .15s;
+}
+.site-nav-links a:hover{color:var(--accent)}
+.site-nav-links a.active{color:var(--accent-strong);font-weight:600}
+
+/* ---------- HERO ---------- */
+.hero{
+  background:var(--ink-dark);
+  color:#fff;
+  padding:88px 0 72px;
+  border-bottom:1px solid #26231f;
+}
+.hero .container{max-width:var(--maxw)}
+.hero-kicker{
+  font-family:var(--mono);
+  font-size:12.5px;
+  letter-spacing:.24em;
+  text-transform:uppercase;
+  color:var(--accent);
+  font-weight:500;
+  margin-bottom:26px;
+}
+.hero-title{
+  font-family:var(--display);
+  font-weight:800;
+  font-size:clamp(34px,5.4vw,62px);
+  line-height:1.04;
+  letter-spacing:-.02em;
+  max-width:16ch;
+}
+.hero-title em{font-style:normal;font-weight:300;color:var(--accent)}
+.hero-sub{
+  margin-top:24px;
+  font-size:19px;
+  line-height:1.55;
+  color:#cbc7c1;
+  max-width:62ch;
+  font-weight:300;
+}
+.hero-meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:0;
+  margin-top:44px;
+  border-top:1px solid #33302b;
+  padding-top:26px;
+}
+.hero-meta-item{padding-right:44px;margin-right:44px;border-right:1px solid #33302b}
+.hero-meta-item:last-child{border-right:none;margin-right:0;padding-right:0}
+.hero-meta-label{
+  font-family:var(--mono);
+  font-size:10.5px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--ink-mute);
+  margin-bottom:7px;
+}
+.hero-meta-value{font-size:15px;font-weight:500;color:#f5f3f0}
+
+/* ---------- LAYOUT ---------- */
+.panel{display:none}
+.panel.active{display:block}
+.panel-layout{
+  display:grid;
+  grid-template-columns:236px 1fr;
+  gap:64px;
+  padding:72px 0 96px;
+  align-items:start;
+}
+
+/* ---------- TOC ---------- */
+.toc{position:sticky;top:96px}
+.toc-label{
+  font-family:var(--mono);
+  font-size:11px;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:var(--ink-mute);
+  padding-bottom:16px;
+  margin-bottom:8px;
+  border-bottom:1px solid var(--line);
+}
+.toc-list{list-style:none}
+.toc-link{
+  display:flex;
+  align-items:baseline;
+  gap:12px;
+  padding:9px 0;
+  text-decoration:none;
+  color:var(--ink-mute);
+  font-size:13.5px;
+  font-weight:500;
+  line-height:1.35;
+  transition:color .15s ease;
+  border-left:2px solid transparent;
+  padding-left:14px;
+  margin-left:-16px;
+}
+.toc-num{font-family:var(--mono);font-size:11px;color:#b6b1aa;font-weight:500;min-width:18px}
+.toc-link:hover{color:var(--ink)}
+.toc-link.active{color:var(--accent-strong);border-left-color:var(--accent)}
+.toc-link.active .toc-num{color:var(--accent)}
+
+/* ---------- SECTIONS ---------- */
+.panel-content{min-width:0}
+.section{margin-bottom:76px;scroll-margin-top:146px}
+.section:last-child{margin-bottom:0}
+.section-num{
+  font-family:var(--mono);
+  font-size:12.5px;
+  letter-spacing:.16em;
+  color:var(--accent);
+  font-weight:500;
+  display:block;
+  margin-bottom:14px;
+}
+.section-title{
+  font-family:var(--display);
+  font-size:clamp(27px,3.4vw,38px);
+  font-weight:800;
+  letter-spacing:-.018em;
+  line-height:1.1;
+  color:var(--ink);
+  margin-bottom:22px;
+}
+.section-title em{font-style:normal;font-weight:300;color:var(--accent)}
+.lead{
+  font-size:18.5px;
+  line-height:1.62;
+  color:var(--ink-soft);
+  font-weight:400;
+  max-width:70ch;
+  margin-bottom:30px;
+}
+.prose{font-size:16px;line-height:1.68;color:var(--ink-soft);margin-bottom:16px;max-width:74ch}
+.prose:last-child{margin-bottom:0}
+.prose strong{color:var(--ink);font-weight:650}
+
+/* ---------- SUBSECTION ---------- */
+.subsection-title{
+  font-family:var(--display);
+  font-size:20px;
+  font-weight:700;
+  letter-spacing:-.01em;
+  color:var(--ink);
+  margin-bottom:0;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:10px;
+}
+.subsection-title .meta{
+  font-family:var(--mono);
+  font-size:11.5px;
+  font-weight:500;
+  letter-spacing:.02em;
+  color:var(--accent-strong);
+  background:var(--accent-soft);
+  padding:5px 11px;
+  border-radius:100px;
+  white-space:nowrap;
+}
+
+/* ---------- CARD ---------- */
+.card{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:30px 32px;
+  margin-bottom:22px;
+}
+.card.tight{padding:22px 24px}
+.card:last-child{margin-bottom:0}
+
+/* ---------- PATTERN BLOCK (bottleneck / solution / reference) ---------- */
+.pattern{margin-top:22px;display:flex;flex-direction:column;gap:20px}
+.pattern-row{display:grid;grid-template-columns:150px 1fr;gap:22px;align-items:start}
+.pattern-label{
+  font-family:var(--mono);
+  font-size:11px;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+  font-weight:600;
+  color:var(--ink-mute);
+  padding-top:3px;
+}
+.pattern-row.solution .pattern-label{color:var(--accent-strong)}
+.pattern-body .prose{margin-bottom:0}
+.pattern-body .prose + .prose{margin-top:12px}
+.ref{
+  font-size:14.5px;
+  color:var(--ink-soft);
+  line-height:1.5;
+}
+.ref .title{font-style:italic;color:var(--ink);font-weight:500}
+.ref .authors{color:var(--ink-mute)}
+
+/* ---------- CALLOUT ---------- */
+.callout{
+  border-left:3px solid var(--accent);
+  background:var(--accent-soft);
+  border-radius:0 var(--radius-sm) var(--radius-sm) 0;
+  padding:22px 26px;
+  margin:28px 0;
+}
+.callout p{font-size:16px;line-height:1.6;color:var(--ink-soft);margin:0}
+.callout p strong{color:var(--ink)}
+.callout.note{background:var(--surface-2);border-left-color:var(--ink-mute)}
+.callout.spaced{margin-top:34px}
+
+/* ---------- CODE ---------- */
+.code-inline{
+  font-family:var(--mono);
+  font-size:.86em;
+  background:var(--surface-2);
+  border:1px solid var(--line);
+  border-radius:5px;
+  padding:1px 6px;
+  color:var(--accent-strong);
+}
+.code-block{
+  font-family:var(--mono);
+  font-size:12.5px;
+  line-height:1.7;
+  background:var(--ink-dark);
+  color:#d6d3cd;
+  border-radius:var(--radius-sm);
+  padding:24px 26px;
+  overflow-x:auto;
+  margin:24px 0;
+  white-space:pre;
+}
+.code-block .hl{color:#a5b4fc}
+
+/* ---------- FEATURE GRID ---------- */
+.feature-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+  margin-top:6px;
+}
+.feature-card{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:26px 24px;
+}
+.feature-card.featured{background:var(--ink-dark);border-color:var(--ink-dark);color:#fff}
+.feature-card-num{
+  font-family:var(--mono);
+  font-size:12px;
+  color:var(--accent);
+  font-weight:500;
+  margin-bottom:14px;
+}
+.feature-card.featured .feature-card-num{color:var(--accent)}
+.feature-card h4{
+  font-family:var(--display);
+  font-size:16.5px;
+  font-weight:700;
+  margin-bottom:9px;
+  letter-spacing:-.01em;
+}
+.feature-card p{font-size:14.5px;line-height:1.56;color:var(--ink-soft)}
+.feature-card.featured p{color:#cbc7c1}
+
+/* ---------- TABLE ---------- */
+.table-wrap{
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  overflow:hidden;
+  margin-top:6px;
+}
+.data-table{width:100%;border-collapse:collapse;font-size:14px}
+.data-table thead th{
+  background:var(--ink-dark);
+  color:#f5f3f0;
+  font-family:var(--display);
+  font-weight:600;
+  font-size:12px;
+  letter-spacing:.05em;
+  text-transform:uppercase;
+  text-align:left;
+  padding:14px 18px;
+}
+.data-table td{
+  padding:14px 18px;
+  border-bottom:1px solid var(--line-soft);
+  vertical-align:top;
+  color:var(--ink-soft);
+}
+.data-table tbody tr:last-child td{border-bottom:none}
+.data-table .dim{
+  font-family:var(--display);
+  font-weight:700;
+  color:var(--ink);
+  white-space:nowrap;
+}
+.data-table .grp{background:var(--surface-2)}
+.data-table .eng{font-family:var(--mono);font-size:12.5px;color:var(--accent-strong)}
+.data-table tbody tr:hover{background:var(--accent-soft)}
+
+/* ---------- FOOTER ---------- */
+.footer{
+  background:var(--ink-dark);
+  color:#a8a29e;
+  padding:44px 0;
+  font-size:13.5px;
+}
+.footer .container{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.footer strong{color:#f5f3f0;font-weight:600}
+.footer a{color:#a8a29e;text-decoration:none;transition:color .15s}
+.footer a:hover{color:#f5f3f0}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width:1080px){
+  .panel-layout{grid-template-columns:1fr;gap:0}
+  .toc{display:none}
+  .feature-grid{grid-template-columns:1fr}
+}
+@media (max-width:680px){
+  .container{padding:0 22px}
+  .hero{padding:56px 0 48px}
+  .pattern-row{grid-template-columns:1fr;gap:6px}
+  .pattern-label{padding-top:0}
+  .card{padding:24px 22px}
+  .hero-meta-item{border-right:none;padding-right:0;margin-right:0;margin-bottom:16px}
+  .site-nav-inner{padding:0 22px;flex-wrap:wrap;height:auto;padding-top:12px;padding-bottom:12px;gap:10px}
+  .site-nav-links{gap:12px}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== SITE NAV ===== -->
+<nav class="site-nav">
+  <div class="site-nav-inner">
+    <a href="/" class="site-nav-brand">Xinshuai&nbsp;Qi</a>
+    <div class="site-nav-links">
+      <a href="/">Home</a>
+      <a href="/research/" class="active">Consulting Research</a>
+      <a href="https://www.linkedin.com/in/xinshuaiqi" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="/publication/">Scientific Publication</a>
+      <a href="http://cgmonline.co/" target="_blank" rel="noopener">CGM</a>
+      <a href="https://scholar.google.com/citations?user=Fw3jawUAAAAJ&hl=en" target="_blank" rel="noopener">Scholar</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ===================== HERO ===================== -->
+<header class="hero">
+  <div class="container">
+    <div class="hero-kicker">Enterprise AI Architecture · White Paper</div>
+    <h1 class="hero-title">The Unified Enterprise <em>ML Map</em></h1>
+    <p class="hero-sub">A production-grade framework mapping the enterprise's highest-friction operational bottlenecks — front office to back office — to the exact machine-learning, large-language-model, and agentic-orchestration architectures that resolve them. Past the vendor hype, into the implementation pattern.</p>
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <div class="hero-meta-label">Author</div>
+        <div class="hero-meta-value">Xinshuai (Chee) Qi</div>
+      </div>
+      <div class="hero-meta-item">
+        <div class="hero-meta-label">Published</div>
+        <div class="hero-meta-value">July 2026</div>
+      </div>
+      <div class="hero-meta-item">
+        <div class="hero-meta-label">Scope</div>
+        <div class="hero-meta-value">Front &rarr; Back Office</div>
+      </div>
+      <div class="hero-meta-item">
+        <div class="hero-meta-label">Audience</div>
+        <div class="hero-meta-value">Executive &amp; Technical</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ===================== BODY ===================== -->
+<main class="panel active">
+  <div class="container">
+    <div class="panel-layout">
+
+      <!-- TOC -->
+      <aside class="toc">
+        <div class="toc-label">Contents</div>
+        <ul class="toc-list">
+          <li><a href="#sec-01" class="toc-link"><span class="toc-num">01</span><span class="toc-name">Executive Summary</span></a></li>
+          <li><a href="#sec-02" class="toc-link"><span class="toc-num">02</span><span class="toc-name">Front Office</span></a></li>
+          <li><a href="#sec-03" class="toc-link"><span class="toc-num">03</span><span class="toc-name">Core Supply Chain</span></a></li>
+          <li><a href="#sec-04" class="toc-link"><span class="toc-num">04</span><span class="toc-name">Back Office</span></a></li>
+          <li><a href="#sec-05" class="toc-link"><span class="toc-num">05</span><span class="toc-name">Platform Foundation</span></a></li>
+          <li><a href="#sec-06" class="toc-link"><span class="toc-num">06</span><span class="toc-name">The Unified Matrix</span></a></li>
+          <li><a href="#sec-07" class="toc-link"><span class="toc-num">07</span><span class="toc-name">Implementation Paradigm</span></a></li>
+        </ul>
+      </aside>
+
+      <div class="panel-content">
+
+        <!-- ========== 01 EXEC SUMMARY ========== -->
+        <section class="section" id="sec-01">
+          <span class="section-num">01 &mdash; Executive Summary</span>
+          <h2 class="section-title">From Siloed Automation to Structural <em>Optimization</em></h2>
+          <p class="lead">As enterprises move past experimental generative-AI pilots, leadership faces a sharper imperative: convert scattered point solutions into structural, end-to-end operational optimization. The obstacle is rarely the model &mdash; it is the surrounding process, still built on rule-based logic and manual exception handling that erodes margin, degrades experience, and accumulates compliance risk.</p>
+          <p class="prose">This white paper maps the industry's defining operational methodologies to specific, production-grade machine-learning (ML), large-language-model (LLM), and agentic-orchestration architectures. It is organized into four operational dimensions &mdash; <strong>Front Office, Core Supply Chain, Back Office, and Platform Foundation</strong> &mdash; and breaks each sub-area into three parts: the operational bottleneck, the architectural solution, and the foundational literature that anchors it.</p>
+          <p class="prose">The through-line is deterministic implementation, not vendor narrative. Every pattern pairs a probabilistic model with a deterministic boundary &mdash; a validation schema, a state machine, a guardrail node &mdash; so that anything touching compliance behaves predictably regardless of what the model generates.</p>
+          <div class="callout">
+            <p><strong>The thesis:</strong> the competitive line of the next decade runs between enterprises that operate on <em>rules</em> and enterprises that operate on <em>models</em>. The first scales headcount to grow; the second scales throughput without it.</p>
+          </div>
+          <div class="callout note">
+            <p><strong>How to read this map.</strong> Each pattern names a real production technique and a defining reference text. The intent is a decision-grade blueprint an architect can act on &mdash; not a survey of what is theoretically possible.</p>
+          </div>
+        </section>
+
+        <!-- ========== 02 FRONT OFFICE ========== -->
+        <section class="section" id="sec-02">
+          <span class="section-num">02 &mdash; Dimension One</span>
+          <h2 class="section-title">Front Office: Maximizing Yield &amp; Revenue <em>Velocity</em></h2>
+          <p class="lead">Front-office operations convert attention into revenue. The failure mode is not scarce data &mdash; it is decision latency: teams act on lagging metrics and subjective inputs after the buying signal has already moved. Each pattern below replaces a rule-based heuristic with a model that prices the signal in real time, optimizing for conversion velocity, yield, and lifetime value.</p>
+
+          <div class="card">
+            <h3 class="subsection-title">Marketing Operations &amp; Growth Analytics <span class="meta">Markov Chains &middot; GMM</span></h3>
+            <div class="pattern">
+              <div class="pattern-row">
+                <div class="pattern-label">Bottleneck</div>
+                <div class="pattern-body"><p class="prose">Multi-channel campaigns still settle attribution with first- or last-touch rules. These heuristics overstate the closing channel, erase the assist, and misroute acquisition budget &mdash; inflating customer acquisition cost (CAC) against a distorted picture of what actually drove conversion.</p></div>
+              </div>
+              <div class="pattern-row solution">
+                <div class="pattern-label">Solution</div>
+                <div class="pattern-body"><p class="prose">Model the customer journey as a sequence of state transitions. <strong>Markov chains</strong> quantify each channel's <em>removal effect</em> &mdash; the drop in conversion probability when that channel is taken out &mdash; isolating true marginal ROI; <strong>survival (time-to-event) models</strong> capture <em>when</em> conversion happens, not just whether it did. For segmentation, <strong>Gaussian Mixture Models</strong> and <strong>K-Means++</strong> over <span class="code-inline">UMAP</span>-reduced behavioral vectors replace static demographic personas with dynamic micro-segments keyed to observed intent.</p></div>
+              </div>
+              <div class="pattern-row">
+                <div class="pattern-label">Reference</div>
+                <div class="pattern-body"><p class="ref"><span class="title">Marketing Analytics: A Practical Guide to Real Marketing Science</span> &mdash; <span class="authors">Mike Grigsby</span></p></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3 class="subsection-title">Sales Operations &amp; Pipeline Execution <span class="meta">LightGBM &middot; LSTM</span></h3>
+            <div class="pattern">
+              <div class="pattern-row">
+                <div class="pattern-label">Bottleneck</div>
+                <div class="pattern-body"><p class="prose">Forecasts inherit the optimism of individual reps' close-probability estimates, and undifferentiated routing sends high- and low-propensity inbound to the same queue &mdash; extending cycle time and depressing win rates.</p></div>
+              </div>
+              <div class="pattern-row solution">
+                <div class="pattern-label">Solution</div>
+                <div class="pattern-body"><p class="prose"><strong>Gradient-boosted trees (LightGBM, CatBoost)</strong> score propensity-to-buy by resolving the non-linear interactions between sparse behavioral signals (pricing-page visits, documentation downloads) and dense firmographic attributes (industry, title, funding stage). For the aggregate forecast, <strong>LSTM sequence models</strong> read historical CRM snapshots to predict quarterly realization independent of rep sentiment.</p></div>
+              </div>
+              <div class="pattern-row">
+                <div class="pattern-label">Reference</div>
+                <div class="pattern-body"><p class="ref"><span class="title">Predictive Analytics for Sales &amp; Marketing</span> &mdash; <span class="authors">Dominique Levin &amp; Oleg Agapov</span></p></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3 class="subsection-title">Revenue Management &amp; Dynamic Pricing <span class="meta">Deep RL &middot; SHAP</span></h3>
+            <div class="pattern">
+              <div class="pattern-row">
+                <div class="pattern-label">Bottleneck</div>
+                <div class="pattern-body"><p class="prose">Fixed price matrices leak margin in volatile markets, and B2B deal desks approve discounts on instinct &mdash; with no defensible ceiling on the concession needed to win.</p></div>
+              </div>
+              <div class="pattern-row solution">
+                <div class="pattern-label">Solution</div>
+                <div class="pattern-body"><p class="prose"><strong>Deep reinforcement-learning agents</strong> model demand elasticity as a control problem, adjusting price increments to maximize yield per unit under live inventory and competitive constraints. For structured B2B deals, a <strong>Random Forest win-probability model</strong> paired with <strong>SHAP attributions</strong> gives reps a transparent, margin-safe guardrail &mdash; quantifying exactly how each discount increment moves win probability against the margin threshold.</p></div>
+              </div>
+              <div class="pattern-row">
+                <div class="pattern-label">Reference</div>
+                <div class="pattern-body"><p class="ref"><span class="title">The Strategy and Tactics of Pricing</span> &mdash; <span class="authors">Thomas T. Nagle &amp; Georg M&uuml;ller</span></p></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ========== 03 SUPPLY CHAIN ========== -->
+        <section class="section" id="sec-03">
+          <span class="section-num">03 &mdash; Dimension Two</span>
+          <h2 class="section-title">Core Supply Chain: Mitigating Volatility &amp; <em>Throughput</em></h2>
+          <p class="lead">Supply chains built on rolling averages and static safety-stock formulas amplify small demand shifts into large swings &mdash; the bullwhip effect. Resilience requires models that digest non-linear, exogenous signals in parallel and translate the forecast directly into an inventory policy, rather than a report a planner must interpret.</p>
+
+          <div class="code-block"><span class="hl">[Omnichannel Ingestion]</span> ──► [Temporal Fusion Transformers] ──► SKU-Level Demand Forecast
+                                     │
+                                     ▼
+<span class="hl">[Physical Network Graph]</span> ──► [Deep Q-Networks (MDP)] ───────► Multi-Echelon Replenishment</div>
+
+          <div class="card">
+            <h3 class="subsection-title">Predictive Demand &amp; Multi-Echelon Replenishment <span class="meta">TFT &middot; XGBoost &middot; DQN</span></h3>
+            <div class="pattern">
+              <div class="pattern-row">
+                <div class="pattern-label">Bottleneck</div>
+                <div class="pattern-body"><p class="prose">Classical models &mdash; ARIMA, moving averages &mdash; cannot absorb external shocks such as promotions, weather, or macro shifts. Forecasts miss, producing either excess safety stock or catastrophic stockouts, and the error compounds across every echelon of a multi-tier network.</p></div>
+              </div>
+              <div class="pattern-row solution">
+                <div class="pattern-label">Solution</div>
+                <div class="pattern-body"><p class="prose"><strong>Temporal Fusion Transformers (TFT)</strong> and <strong>XGBoost</strong> ingest multi-horizon history alongside exogenous features &mdash; macro indices, weather anomalies, promotional calendars &mdash; to produce localized, SKU-level forecasts. <strong>Deep Q-Networks (DQN / PPO)</strong> then model the multi-echelon inventory space as a Markov Decision Process, learning replenishment policies that minimize holding cost while protecting service-level agreements.</p></div>
+              </div>
+              <div class="pattern-row">
+                <div class="pattern-label">Reference</div>
+                <div class="pattern-body"><p class="ref"><span class="title">Data Science for Supply Chain Forecasting</span> (2nd ed.) &mdash; <span class="authors">Nicolas Vandeput</span></p></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3 class="subsection-title">Logistics &amp; Route Optimization <span class="meta">GNN &middot; GA / MILP</span></h3>
+            <div class="pattern">
+              <div class="pattern-row">
+                <div class="pattern-label">Bottleneck</div>
+                <div class="pattern-body"><p class="prose">The Vehicle Routing Problem with Time Windows (VRPTW) scales exponentially in computational complexity. Legacy batch optimizers cannot re-plan around real-time disruption &mdash; a closed lane, a delayed dock, a demand spike mid-route.</p></div>
+              </div>
+              <div class="pattern-row solution">
+                <div class="pattern-label">Solution</div>
+                <div class="pattern-body"><p class="prose"><strong>Graph Neural Networks (GNNs)</strong> embed the physical transit network into vector space to predict per-edge transit-time anomalies before vehicles deploy. Those learned weights feed hybrid <strong>Genetic Algorithm</strong> and <strong>Mixed-Integer Linear Programming (MILP)</strong> solvers that re-sequence multi-stop routes in flight, dynamically rather than in overnight batches.</p></div>
+              </div>
+              <div class="pattern-row">
+                <div class="pattern-label">Reference</div>
+                <div class="pattern-body"><p class="ref"><span class="title">Supply Chain Analytics: Strategies, Models and Solutions</span> &mdash; <span class="authors">R. Bhattacharya &amp; A. M. Bhattacharyya</span></p></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ========== 04 BACK OFFICE ========== -->
+        <section class="section" id="sec-04">
+          <span class="section-num">04 &mdash; Dimension Three</span>
+          <h2 class="section-title">Back Office: Engineering Shared-Services <em>Efficiency</em></h2>
+          <p class="lead">Back-office shared services hold the enterprise's largest concentration of manual document handling and exception work. The pattern across every function is the same: replace brittle, template-bound rules with models that read unstructured input and resolve the exception &mdash; while keeping a deterministic boundary around anything that touches compliance or the system of record.</p>
+
+          <div class="card">
+            <h3 class="subsection-title">Document Ingestion &amp; Claims Processing <span class="meta">LayoutLM &middot; Autoencoders</span></h3>
+            <div class="pattern">
+              <div class="pattern-row">
+                <div class="pattern-label">Bottleneck</div>
+                <div class="pattern-body"><p class="prose">Template-bound OCR breaks the moment a claim form, medical bill, or regional utility invoice deviates from the expected layout &mdash; forcing costly manual re-keying and stalling straight-through processing.</p></div>
+              </div>
+              <div class="pattern-row solution">
+                <div class="pattern-label">Solution</div>
+                <div class="pattern-body"><p class="prose"><strong>LayoutLM-class multimodal transformers</strong> read text content and its spatial coordinates together &mdash; locating a balance-due line relative to the box grid &mdash; mapping variable layouts into typed <span class="code-inline">JSON</span> payloads without human eyes. Unsupervised <strong>deep autoencoders</strong> then score each transaction by reconstruction error, flagging duplicates and evolving fraud patterns that fixed rules never anticipate.</p></div>
+              </div>
+              <div class="pattern-row">
+                <div class="pattern-label">Reference</div>
+                <div class="pattern-body"><p class="ref"><span class="title">Intelligent Automation</span> &mdash; <span class="authors">Pascal Bornet, Ian Barkin &amp; Jochen Wirtz</span></p></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3 class="subsection-title">Contact Center &amp; CCaaS Pipelines <span class="meta">LangGraph &middot; RAG &middot; Tool Calling</span></h3>
+            <div class="pattern">
+              <div class="pattern-row">
+                <div class="pattern-label">Bottleneck</div>
+                <div class="pattern-body"><p class="prose">Rigid IVR trees and siloed CRM records inflate average handling time (AHT), while agents spend up to a quarter of each interaction on after-call notes and disposition coding. Streaming voice, chat, and legacy records live apart, so no single system holds the full interaction.</p></div>
+              </div>
+              <div class="pattern-row solution">
+                <div class="pattern-label">Solution</div>
+                <div class="pattern-body"><p class="prose">A <strong>LangGraph state machine</strong> holds long-running, stateful conversations &mdash; a customer can digress from a billing dispute to an address change without losing execution state &mdash; and forces every path through mandatory compliance nodes such as identity verification. <strong>Retrieval-Augmented Generation (RAG)</strong> surfaces verified knowledge-base content in real time; <strong>LLM function calling</strong> extracts commitments made on the call, auto-populates the wrap-up template, and triggers downstream actions, driving after-call work toward zero.</p></div>
+              </div>
+              <div class="pattern-row">
+                <div class="pattern-label">Reference</div>
+                <div class="pattern-body"><p class="ref"><span class="title">Managing Machine Learning Projects: From Strategy to Production</span> &mdash; <span class="authors">Simon Thompson</span></p></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3 class="subsection-title">Finance Operations &amp; Shared-Services Accounting <span class="meta">Siamese Nets &middot; GNN</span></h3>
+            <div class="pattern">
+              <div class="pattern-row">
+                <div class="pattern-label">Bottleneck</div>
+                <div class="pattern-body"><p class="prose">The Record-to-Report (R2R) and Accounts Payable cycles stall on transaction-matching exceptions &mdash; ledgers that fail to reconcile because of timestamp, currency, or free-text variation &mdash; and on anomalies caught only at month-end close, when they are most expensive to unwind.</p></div>
+              </div>
+              <div class="pattern-row solution">
+                <div class="pattern-label">Solution</div>
+                <div class="pattern-body"><p class="prose"><strong>Siamese networks (deep metric learning)</strong> project multi-attribute transaction features into a shared vector space and learn a similarity metric; a <strong>bipartite solver</strong> (Hungarian method) then resolves complex multi-invoice clearings on probabilistic scores rather than brittle exact matches. <strong>Graph Convolutional Networks</strong> map the user &rarr; ledger &rarr; cost-center topology to surface structural anomalies before the books close.</p></div>
+              </div>
+              <div class="pattern-row">
+                <div class="pattern-label">Reference</div>
+                <div class="pattern-body"><p class="ref"><span class="title">The Essentials of Machine Learning in Finance and Accounting</span> &mdash; <span class="authors">M. Z. Abedin &amp; M. K. Hassan</span></p></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3 class="subsection-title">HR Operations &amp; Capability Analytics <span class="meta">SBERT &middot; Cox Survival</span></h3>
+            <div class="pattern">
+              <div class="pattern-row">
+                <div class="pattern-label">Bottleneck</div>
+                <div class="pattern-body"><p class="prose">Keyword-based resume parsing misses qualified candidates whose titles don't match the search string, and workforce planning stays reactive &mdash; backfilling only after attrition has already opened a capacity gap.</p></div>
+              </div>
+              <div class="pattern-row solution">
+                <div class="pattern-label">Solution</div>
+                <div class="pattern-body"><p class="prose"><strong>Sentence Transformers (SBERT)</strong> normalize disparate job histories into a shared enterprise skills graph, scoring true capability alignment rather than title overlap &mdash; so a "Data Engineer" and an "Analytics Infrastructure Architect" resolve to the same underlying capability. <strong>Cox proportional-hazards survival models</strong> estimate <em>time-to-attrition</em> from compound signals (time since last promotion, compensation delta to market, manager turnover), giving planners a lead time to open pipelines before the gap appears.</p></div>
+              </div>
+              <div class="pattern-row">
+                <div class="pattern-label">Reference</div>
+                <div class="pattern-body"><p class="ref"><span class="title">The AI-Centric HR Operating Model</span> &mdash; <span class="authors">Tess Hilson-Greener</span></p></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ========== 05 PLATFORM ========== -->
+        <section class="section" id="sec-05">
+          <span class="section-num">05 &mdash; Dimension Four</span>
+          <h2 class="section-title">Platform Foundation: Type-Safe <em>Governance</em></h2>
+          <p class="lead">None of the patterns above survive contact with production unless the platform beneath them enforces structural correctness. The foundation layer makes AI output type-safe at the boundary and keeps the system of record aligned with reality &mdash; turning "the model usually behaves" into "the model provably cannot violate the schema."</p>
+
+          <div class="card">
+            <h3 class="subsection-title">Enterprise Architecture Governance &amp; ITSM <span class="meta">PydanticAI &middot; Semantic Graphs</span></h3>
+            <div class="pattern">
+              <div class="pattern-row">
+                <div class="pattern-label">Bottleneck</div>
+                <div class="pattern-body"><p class="prose">During compressed transformation cycles, architecture documentation goes stale immediately. Configuration databases (CMDBs) drift, downstream dependencies are unknown, and unconstrained LLM output introduces compliance and stability risk the moment it touches system design or change management.</p></div>
+              </div>
+              <div class="pattern-row solution">
+                <div class="pattern-label">Solution</div>
+                <div class="pattern-body">
+                  <p class="prose"><strong>Multi-agent pipelines route through strict <span class="code-inline">Pydantic</span> validation boundaries</strong> (PydanticAI). Any AI-generated configuration, API payload, or design change is rejected at the schema layer if it violates a compliance or security constraint &mdash; deterministic enforcement wrapped around a probabilistic core.</p>
+                  <p class="prose">In parallel, <strong>LLM semantic parsers</strong> read legacy code and API documentation to extract dependencies into a <strong>graph database</strong>, flagging architectural drift and cascade-failure risk during incidents, and surfacing technical debt automatically rather than through manual audit.</p>
+                </div>
+              </div>
+              <div class="pattern-row">
+                <div class="pattern-label">Reference</div>
+                <div class="pattern-body"><p class="ref"><span class="title">Enterprise Architecture as Strategy: Creating a Foundation for Business Execution</span> &mdash; <span class="authors">Jeanne W. Ross, Peter Weill &amp; David C. Robertson</span></p></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ========== 06 MATRIX ========== -->
+        <section class="section" id="sec-06">
+          <span class="section-num">06 &mdash; Reference Artifact</span>
+          <h2 class="section-title">The Unified Enterprise ML <em>Matrix</em></h2>
+          <p class="lead">The complete operational picture on a single page: every dimension, its target process, the primary engine, and the outcome it unlocks. This is the map an architect prioritizes against.</p>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Dimension</th>
+                  <th>Operational Layer</th>
+                  <th>Primary ML / LLM Engine</th>
+                  <th>Core Target Outcome</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="grp"><td class="dim" rowspan="3">Front Office</td><td>Marketing Growth</td><td class="eng">Markov Chains / GMM</td><td>Multi-touch attribution, micro-targeting</td></tr>
+                <tr class="grp"><td>Sales Execution</td><td class="eng">LightGBM / LSTM</td><td>Predictive lead scoring, pipeline forecasting</td></tr>
+                <tr class="grp"><td>Revenue &amp; Pricing</td><td class="eng">Deep RL / SHAP</td><td>Dynamic yield optimization, deal guardrails</td></tr>
+
+                <tr><td class="dim" rowspan="2">Core Supply Chain</td><td>Logistics Flow</td><td class="eng">TFT / XGBoost / DQN</td><td>Multi-echelon demand planning</td></tr>
+                <tr><td>Physical Network</td><td class="eng">GNN / Genetic Algorithms</td><td>Real-time vehicle routing (VRPTW)</td></tr>
+
+                <tr class="grp"><td class="dim" rowspan="4">Back Office</td><td>Claims &amp; Invoices</td><td class="eng">LayoutLM / Autoencoders</td><td>Straight-through extraction, fraud triage</td></tr>
+                <tr class="grp"><td>Contact Center / CX</td><td class="eng">LangGraph / Tool Calling / RAG</td><td>Stateful routing, auto wrap-up</td></tr>
+                <tr class="grp"><td>Finance Operations</td><td class="eng">Siamese Nets / GNN</td><td>Probabilistic reconciliation, ledger audit</td></tr>
+                <tr class="grp"><td>HR Operations</td><td class="eng">SBERT / Cox Survival</td><td>Capability mapping, attrition timelines</td></tr>
+
+                <tr><td class="dim">Platform Foundation</td><td>Enterprise Arch / ITSM</td><td class="eng">PydanticAI / Semantic Graphs</td><td>Type-safe guardrails, debt identification</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- ========== 07 CONCLUSION ========== -->
+        <section class="section" id="sec-07">
+          <span class="section-num">07 &mdash; Conclusion</span>
+          <h2 class="section-title">The Strategic Implementation <em>Paradigm</em></h2>
+          <p class="lead">Deploying ML across the enterprise means moving past isolated point solutions and treating operational workflows as one interconnected data fabric. Point solutions don't compound; an architecture does. Three principles separate the deployments that reach production from the pilots that stall.</p>
+
+          <div class="feature-grid">
+            <div class="feature-card">
+              <div class="feature-card-num">01</div>
+              <h4>Deterministic shell, probabilistic core</h4>
+              <p>Wrap every model in validation and guardrail nodes &mdash; a state machine, a schema, a compliance gate &mdash; so that regulatory behavior never depends on what the model happens to generate.</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-card-num">02</div>
+              <h4>Start at the exception queue</h4>
+              <p>The highest-ROI entry point is the manual work rules already failed to automate. Target the exception backlog first; it is where model value is both largest and easiest to measure.</p>
+            </div>
+            <div class="feature-card featured">
+              <div class="feature-card-num">03</div>
+              <h4>Type-safety at the boundary</h4>
+              <p>Enforce schemas where AI output meets the system of record &mdash; not after. Structural correctness caught at the validation boundary is cheaper than any downstream reconciliation.</p>
+            </div>
+          </div>
+
+          <div class="callout spaced">
+            <p>By grounding front-office yield, supply-chain intelligence, back-office shared services, and the platform foundation in mathematically sound, type-safe architectures, organizations shift from reactive cost management to predictive operational excellence. <strong>The next decade's advantage belongs to those who run their enterprises on models &mdash; not rules.</strong></p>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div><strong>The Unified Enterprise ML Map</strong> &mdash; Front to Back Office</div>
+    <div>White Paper &middot; July 2026 &middot; <a href="/">Xinshuai (Chee) Qi</a> &middot; <a href="/research/">&larr; Back to Research</a></div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  const tocLinks = document.querySelectorAll('.toc-link');
+  const sections = document.querySelectorAll('.panel.active section.section');
+  if (!tocLinks.length || !sections.length) return;
+  const visible = new Set();
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) visible.add(e.target.id);
+      else visible.delete(e.target.id);
+    });
+    if (visible.size === 0) return;
+    const topmost = [...visible].sort((a, b) =>
+      document.getElementById(a).getBoundingClientRect().top -
+      document.getElementById(b).getBoundingClientRect().top
+    )[0];
+    tocLinks.forEach(link => {
+      link.classList.toggle('active', link.getAttribute('href') === '#' + topmost);
+    });
+  }, { rootMargin: '-80px 0px -55% 0px', threshold: 0 });
+  sections.forEach(s => observer.observe(s));
+})();
+</script>
+</body>
+</html>
