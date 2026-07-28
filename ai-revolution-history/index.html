@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The AI Revolution Through the Lens of History — Xinshuai Qi, Ph.D.</title>
+<meta name="description" content="What Carlota Perez's study of five technological revolutions predicts for AI: two bubbles not one, why a burst is not a failure, the 18–20 year super-cycle, and the four tests that decide which applications survive the shakeout.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The AI Revolution Through the Lens of History">
+<meta property="og:description" content="A 2002 book already mapped how the AI bubble ends — two bubbles not one, and the winners show up only after the burst. Bilingual (EN / 中文).">
+<meta property="og:url" content="https://xinshuaiqi.github.io/ai-revolution-history/">
+<meta property="og:image" content="https://xinshuaiqi.github.io/img/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The AI Revolution Through the Lens of History">
+<meta name="twitter:description" content="What history's five technological revolutions predict for AI. Bilingual EN / 中文.">
+<meta name="twitter:image" content="https://xinshuaiqi.github.io/img/og-image.png">
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<script>
+  tailwind.config = { theme: { extend: { fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] } } } }
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  .prose-lead { font-size: 1.25rem; line-height: 2rem; }
+</style>
+</head>
+<body class="bg-gray-50 text-gray-900 font-sans min-h-screen">
+
+<!-- ============ STICKY TOP BAR: NAV + LANGUAGE TOGGLE ============ -->
+<header class="border-b border-gray-200 sticky top-0 bg-white/90 backdrop-blur z-50">
+  <div class="max-w-[880px] mx-auto px-6 py-3 flex items-center justify-between gap-4">
+    <a href="/research/" class="text-sm font-semibold text-gray-900 hover:text-[#2563EB] transition"><i class="fa-solid fa-arrow-left-long mr-2 text-gray-400"></i>Research &amp; Writing</a>
+    <div class="inline-flex rounded-lg border border-gray-200 overflow-hidden text-sm shrink-0" role="group" aria-label="Language switch">
+      <button id="btn-en" onclick="setLang('en')" class="px-4 py-1.5 font-medium transition"><i class="fa-solid fa-language mr-1.5"></i>English</button>
+      <button id="btn-cn" onclick="setLang('cn')" class="px-4 py-1.5 font-medium transition border-l border-gray-200">中文</button>
+    </div>
+  </div>
+</header>
+
+<!-- =================================================================== -->
+<!-- ============================ ENGLISH ============================== -->
+<!-- =================================================================== -->
+<div id="article-en">
+
+  <!-- ===== HERO ===== -->
+  <div class="bg-black text-white px-6 py-12">
+    <div class="max-w-[880px] mx-auto">
+      <p class="text-[#2563EB] text-xs font-semibold tracking-widest uppercase mb-3"><i class="fa-solid fa-clock-rotate-left mr-1"></i>Essay &middot; Featured &middot; ~10-min read</p>
+      <h1 class="text-3xl md:text-5xl font-bold leading-tight">The AI Revolution Through the Lens of History</h1>
+      <p class="text-gray-300 text-lg md:text-xl mt-4 font-medium">The AI &ldquo;bubble&rdquo; everyone fears? A book from 2002 already told us how it ends &mdash; <span class="text-[#2563EB]">two bubbles, not one</span>, and the winners show up only after the burst.</p>
+      <div class="flex flex-wrap gap-x-6 gap-y-1 mt-6 text-sm text-gray-400">
+        <span><i class="fa-solid fa-user-pen mr-1"></i>Xinshuai Qi, Ph.D.</span>
+        <span><i class="fa-regular fa-calendar mr-1"></i>July 2026</span>
+        <span><i class="fa-solid fa-book mr-1"></i>After Carlota Perez, <em>Technological Revolutions and Financial Capital</em> (2002)</span>
+      </div>
+    </div>
+  </div>
+
+  <main class="max-w-[880px] mx-auto px-6 py-12">
+
+    <!-- Intro -->
+    <p class="prose-lead text-gray-700 mb-4">In 2002, economist Carlota Perez published <em>Technological Revolutions and Financial Capital</em>. After studying five great surges &mdash; canals, railways, steel, electricity, and the internet &mdash; she found they don&rsquo;t repeat, but they rhyme. And the rhyme is precise enough to be useful.</p>
+    <p class="text-gray-700 leading-8 text-[17px] mb-10">Here is the pattern, and where AI sits inside it today.</p>
+
+    <!-- 1 -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3"><i class="fa-solid fa-layer-group text-[#2563EB] mr-2"></i>1 &middot; Every revolution has two bubbles, not one</h2>
+      <p class="text-gray-700 leading-8 text-[17px] mb-4">This is the part most people miss. A technology revolution doesn&rsquo;t inflate once &mdash; it inflates twice.</p>
+      <div class="grid md:grid-cols-2 gap-4 mb-4">
+        <div class="bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
+          <p class="text-[#2563EB] text-xs font-bold uppercase tracking-wider mb-2"><i class="fa-solid fa-1 mr-1"></i>Bubble one &middot; Infrastructure</p>
+          <p class="text-gray-700 text-[15px] leading-7">Lay the rails. String the grid. Bury the fiber. Stack the GPUs. Investment is enormous, the logic is sound, and the returns arrive late &mdash; capital pours in years before cash flows out.</p>
+        </div>
+        <div class="bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
+          <p class="text-[#2563EB] text-xs font-bold uppercase tracking-wider mb-2"><i class="fa-solid fa-2 mr-1"></i>Bubble two &middot; Application</p>
+          <p class="text-gray-700 text-[15px] leading-7">Only after the technology matures and the cost collapses do the companies that actually make money show up.</p>
+        </div>
+      </div>
+      <p class="text-gray-700 leading-8 text-[17px]">Every surge leaves a physical inheritance. Railway mania left a rail network. The dot-com mania left fiber and, eventually, cloud computing. The AI mania will leave behind a global compute-and-power grid. We are still inside bubble one &mdash; the winners of bubble two mostly don&rsquo;t exist yet, or are too small to notice.</p>
+    </section>
+
+    <!-- 2 -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3"><i class="fa-solid fa-arrow-trend-down text-[#2563EB] mr-2"></i>2 &middot; A burst is not a failure</h2>
+      <p class="text-gray-700 leading-8 text-[17px] mb-4">Railways crashed. Electricity crashed. The internet crashed in 2000. Every one of them went on to become the invisible infrastructure the modern world runs on.</p>
+      <p class="text-gray-700 leading-8 text-[17px]">The crash is not &ldquo;the technology failed.&rdquo; It is &ldquo;capital ran faster than reality could follow.&rdquo; The burst does one useful thing: it clears the excess hardware. And precisely because there is excess, the price of infrastructure collapses &mdash; which is what finally lights the fuse on the application layer. Cheap fiber built AWS. Cheap compute will build whatever comes next. The overshoot is not a bug in the cycle. It is the mechanism.</p>
+    </section>
+
+    <!-- 3 -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3"><i class="fa-solid fa-chart-line text-[#2563EB] mr-2"></i>3 &middot; The Hype Cycle is real &mdash; and AI is at a known point on it</h2>
+      <p class="text-gray-700 leading-8 text-[17px] mb-4">Gartner&rsquo;s curve &mdash; Innovation Trigger &rarr; Peak of Inflated Expectations &rarr; Trough of Disillusionment &rarr; Slope of Enlightenment &rarr; Plateau of Productivity &mdash; is not marketing. The internet followed it exactly. AI is following it now.</p>
+      <div class="bg-[#2563EB]/10 border border-[#2563EB]/30 rounded-xl p-5">
+        <p class="text-[#1E3A8A] text-[17px] leading-8"><i class="fa-solid fa-location-crosshairs mr-2"></i><strong>My read:</strong> AI is late in the Peak of Inflated Expectations, beginning the handoff toward the Trough. We are near the profit peak of the infrastructure build, and 2&ndash;3 years from the shakeout.</p>
+      </div>
+    </section>
+
+    <!-- 4 -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3"><i class="fa-solid fa-trowel text-[#2563EB] mr-2"></i>4 &middot; The shovel-sellers move first</h2>
+      <p class="text-gray-700 leading-8 text-[17px] mb-4">In every Kondratiev recovery, the first thing to re-rate is the &ldquo;sell the shovels&rdquo; layer.</p>
+      <ul class="space-y-2 text-[17px] text-gray-700 mb-4 ml-1">
+        <li><i class="fa-solid fa-train text-[#2563EB] mr-2"></i>Railway era: rails and heavy industry.</li>
+        <li><i class="fa-solid fa-bolt text-[#2563EB] mr-2"></i>Electricity era: generation equipment.</li>
+        <li><i class="fa-solid fa-network-wired text-[#2563EB] mr-2"></i>Internet era: fiber, routers, switches.</li>
+        <li><i class="fa-solid fa-microchip text-[#2563EB] mr-2"></i>AI era: GPUs, servers, data centers &mdash; and, increasingly, electricity itself.</li>
+      </ul>
+      <p class="text-gray-700 leading-8 text-[17px]">That is exactly what the market has priced first. This is normal. But it marks <em>where we are in the cycle</em>, not where the durable value will finally sit.</p>
+    </section>
+
+    <!-- 5 -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3"><i class="fa-solid fa-timeline text-[#2563EB] mr-2"></i>5 &middot; The timeline: an 18&ndash;20 year super-cycle</h2>
+      <p class="text-gray-700 leading-8 text-[17px] mb-5">Industry-cycle research (including work from firms like BlackRock) frames the AI super-cycle as roughly 18&ndash;20 years, 2023&ndash;2042, in four acts:</p>
+      <div class="space-y-3 mb-5">
+        <div class="bg-white border border-gray-200 border-l-4 border-l-[#2563EB] rounded-lg p-4 shadow-sm"><span class="text-[#2563EB] font-bold text-sm">2023&ndash;2028</span><span class="text-gray-900 font-semibold ml-3">Infrastructure frenzy.</span><span class="text-gray-600 text-[15px] block mt-1">Compute, foundation models, data centers. Money first, discipline later.</span></div>
+        <div class="bg-white border border-gray-200 border-l-4 border-l-[#0284C7] rounded-lg p-4 shadow-sm"><span class="text-[#0284C7] font-bold text-sm">2028&ndash;2033</span><span class="text-gray-900 font-semibold ml-3">Application landing + shakeout.</span><span class="text-gray-600 text-[15px] block mt-1">Overbuilt capacity, price wars, most &ldquo;AI companies&rdquo; die &mdash; while the applications that genuinely work start to earn.</span></div>
+        <div class="bg-white border border-gray-200 border-l-4 border-l-[#1E3A8A] rounded-lg p-4 shadow-sm"><span class="text-[#1E3A8A] font-bold text-sm">2033&ndash;2038</span><span class="text-gray-900 font-semibold ml-3">Commercial boom.</span><span class="text-gray-600 text-[15px] block mt-1">AI saturates industry after industry.</span></div>
+        <div class="bg-white border border-gray-200 border-l-4 border-l-gray-900 rounded-lg p-4 shadow-sm"><span class="text-gray-900 font-bold text-sm">2038&ndash;2042</span><span class="text-gray-900 font-semibold ml-3">Platform lock-in.</span><span class="text-gray-600 text-[15px] block mt-1">The structure sets; a few giants consolidate.</span></div>
+      </div>
+      <p class="text-gray-700 leading-8 text-[17px]">Multiple sources point to <strong>2027&ndash;2029</strong> as the burst window. Plausible markers: leaders like Nvidia and OpenAI seeing valuations compress on the order of ~70%; the Nasdaq-100 correcting 30&ndash;40% (not the ~78% of 2000); 70&ndash;80% of AI startups folding.</p>
+    </section>
+
+    <!-- 6 -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3"><i class="fa-solid fa-scale-unbalanced text-[#2563EB] mr-2"></i>6 &middot; This is not 2000 &mdash; and the difference matters</h2>
+      <ul class="space-y-3 text-[17px] text-gray-700 mb-4">
+        <li><i class="fa-solid fa-circle-dot text-[#2563EB] mr-2"></i>2000 was a <strong>story bubble</strong>: zero revenue, infinite narrative. 2026 is a <strong>valuation bubble</strong>: real revenue, over-heated multiples.</li>
+        <li><i class="fa-solid fa-circle-dot text-[#2563EB] mr-2"></i>In 2000, the busted companies went to zero. In 2026, a correction hits Microsoft, Google, Nvidia &mdash; businesses that keep earning even as multiples compress. The equity gets cheaper; the cash flow doesn&rsquo;t vanish.</li>
+        <li><i class="fa-solid fa-circle-dot text-[#2563EB] mr-2"></i>AI carries <strong>national-credit backing</strong>. The US and China both treat it as strategic priority &mdash; an institutional moat the dot-coms never had.</li>
+      </ul>
+      <p class="text-gray-700 leading-8 text-[17px]">So the bet worth making is not &ldquo;the crash comes in year X.&rdquo; It is the pattern itself: <em>over-investment &rarr; cost collapse &rarr; application explosion &rarr; business-model reconstruction.</em> If AI runs that script, the biggest winner won&rsquo;t be whoever owns the smartest model. It will be whoever embeds AI deepest into an industry&rsquo;s workflow, compounds a data flywheel, and builds system-level engineering capability.</p>
+    </section>
+
+    <!-- 7 -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3"><i class="fa-solid fa-filter text-[#2563EB] mr-2"></i>7 &middot; What the market will actually reward after the burst</h2>
+      <p class="text-gray-700 leading-8 text-[17px] mb-5">The trough is a brutal, efficient sorting machine. In the frenzy, everyone can raise on a story. After the burst, financial capital exits and production capital takes over &mdash; and the question flips from &ldquo;how big could this get?&rdquo; to &ldquo;how much does it save or earn right now?&rdquo; Four hard tests separate survivors from the culled:</p>
+      <div class="grid md:grid-cols-2 gap-4">
+        <div class="bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
+          <h3 class="text-base font-bold text-gray-900 mb-2"><i class="fa-solid fa-money-bill-trend-up text-[#2563EB] mr-2"></i>Test 1 &middot; Takes over a cost center</h3>
+          <p class="text-gray-600 text-[15px] leading-7">Nice-to-have &ldquo;enhancement tools&rdquo; (the 10%-faster copilots) get cut first in a downturn. Survivors sell <strong>labor-as-a-service</strong>: they enter the P&amp;L directly, cutting a real cost (support, basic code, first-pass legal review) by 80%+, or creating a new revenue line.</p>
+        </div>
+        <div class="bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
+          <h3 class="text-base font-bold text-gray-900 mb-2"><i class="fa-solid fa-link text-[#2563EB] mr-2"></i>Test 2 &middot; Embedded in the workflow</h3>
+          <p class="text-gray-600 text-[15px] leading-7">&ldquo;Technically ahead&rdquo; is a fragile moat &mdash; models commoditize fast. If a user copies text in and out, they&rsquo;ll switch tomorrow. If the tool has fused your ERP, CRM, and knowledge base and rebuilt the process around itself, replacing it means an organizational rebuild.</p>
+        </div>
+        <div class="bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
+          <h3 class="text-base font-bold text-gray-900 mb-2"><i class="fa-solid fa-calculator text-[#2563EB] mr-2"></i>Test 3 &middot; Unit economics close</h3>
+          <p class="text-gray-600 text-[15px] leading-7">In the frenzy, nobody counts the compute. After the burst, unit economics must be positive &mdash; no more spending $1 of compute to produce $0.10 of output. As chips advance and inference moves on-device / to small models, revenue has to cover depreciation and marginal inference.</p>
+        </div>
+        <div class="bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
+          <h3 class="text-base font-bold text-gray-900 mb-2"><i class="fa-solid fa-database text-[#2563EB] mr-2"></i>Test 4 &middot; Owns exclusive context</h3>
+          <p class="text-gray-600 text-[15px] leading-7">Survivors are not &ldquo;wrappers on a big model.&rdquo; They are containers for proprietary industry data and workflow. The model supplies general intelligence; solving the hard problem takes decades of non-public data, compliance rules, and expert judgment. <strong>Model + proprietary context</strong> is the moat.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8 -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3"><i class="fa-solid fa-landmark text-[#2563EB] mr-2"></i>8 &middot; History already ran this test</h2>
+      <div class="overflow-x-auto mb-5">
+        <table class="w-full text-sm border-collapse">
+          <thead>
+            <tr>
+              <th class="bg-[#1E3A8A] text-white font-medium text-left px-4 py-2"><i class="fa-regular fa-clock mr-1"></i>Revolution</th>
+              <th class="bg-[#1E3A8A] text-white font-medium text-left px-4 py-2"><i class="fa-solid fa-ghost mr-1"></i>The frenzy&rsquo;s &ldquo;fake&rdquo; apps</th>
+              <th class="bg-[#1E3A8A] text-white font-medium text-left px-4 py-2"><i class="fa-solid fa-trophy mr-1"></i>What survived &amp; won</th>
+            </tr>
+          </thead>
+          <tbody class="text-gray-700">
+            <tr class="border-b border-[#2563EB]/30"><td class="px-4 py-3 font-medium text-[#2563EB]">Steam &amp; rail (1840s)</td><td class="px-4 py-3">Speculative &ldquo;tourist lines&rdquo; with no freight</td><td class="px-4 py-3">Trunk networks connecting mines, ports, industrial towns &mdash; cut society-wide logistics cost</td></tr>
+            <tr class="border-b border-[#2563EB]/30"><td class="px-4 py-3 font-medium text-[#2563EB]">Electricity &amp; mass production (1920s)</td><td class="px-4 py-3">Factories that just swapped a steam engine for a motor</td><td class="px-4 py-3">Those that redesigned around the assembly line (Ford) &mdash; a step-change in yield</td></tr>
+            <tr class="border-b border-[#2563EB]/30"><td class="px-4 py-3 font-medium text-[#2563EB]">Internet (2000s)</td><td class="px-4 py-3">Pets.com &mdash; no fulfillment, pure eyeballs</td><td class="px-4 py-3">Amazon (commerce + AWS), Google (precision search ads) once infra got cheap</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="bg-gray-900 text-gray-100 rounded-xl p-5 text-[15px] leading-8 font-mono overflow-x-auto">
+        <div><span class="text-[#60A5FA]">[Internet 2000]</span> &rarr; clear excess fiber/servers &rarr; <span class="text-white">Amazon / Google</span></div>
+        <div><span class="text-[#60A5FA]">[Mobile 2011]</span> &rarr; clear the clone-app frenzy &rarr; <span class="text-white">mobile payments / Uber / ByteDance</span></div>
+        <div><span class="text-[#60A5FA]">[AI 2027+]</span> &rarr; clear compute glut + wrapper-SaaS &rarr; <span class="text-white">vertical Agents / embodied AI / AI-driven drug &amp; engineering</span></div>
+      </div>
+    </section>
+
+    <!-- 9 -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3"><i class="fa-solid fa-trophy text-[#2563EB] mr-2"></i>9 &middot; So where do the 2030s winners come from?</h2>
+      <p class="text-gray-700 leading-8 text-[17px] mb-5">If 2027&ndash;2029 clears the AI valuation excess and infrastructure prices crater, three application shapes look most likely to open the next golden age:</p>
+      <div class="space-y-4">
+        <div class="bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
+          <h3 class="text-base font-bold text-gray-900 mb-1"><i class="fa-solid fa-sitemap text-[#2563EB] mr-2"></i>AI architecture-rebuilders in high-risk verticals</h3>
+          <p class="text-gray-600 text-[15px] leading-7">Legal/compliance first-pass, preclinical molecule screening, complex financial analysis, chip EDA assist. The cost of an hour is extreme; AI doesn&rsquo;t need to replace the human 100% &mdash; compressing a 100-hour expert task to 2 hours (human-in-the-loop) already commands a premium.</p>
+        </div>
+        <div class="bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
+          <h3 class="text-base font-bold text-gray-900 mb-1"><i class="fa-solid fa-robot text-[#2563EB] mr-2"></i>Physical-world operators (Physical AI)</h3>
+          <p class="text-gray-600 text-[15px] leading-7">Industrial robotics, unmanned operations in hard environments, autonomous logistics. Pure-software efficiency has a ceiling. Turning compute into physical output &mdash; replacing expensive, scarce skilled labor &mdash; is the best outlet for the compute glut and the cleanest path to enormous ROI.</p>
+        </div>
+        <div class="bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
+          <h3 class="text-base font-bold text-gray-900 mb-1"><i class="fa-solid fa-diagram-project text-[#2563EB] mr-2"></i>Enterprise Agent orchestration</h3>
+          <p class="text-gray-600 text-[15px] leading-7">Cross-system ERP/CRM automation: supply-chain replenishment, invoice reconciliation, claims processing, run end-to-end. The shift from <em>Chat</em> to <em>Action</em> &mdash; the indispensable &ldquo;digital-employee layer&rdquo; inside a company&rsquo;s operations.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10 -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3"><i class="fa-solid fa-flag-checkered text-[#2563EB] mr-2"></i>10 &middot; What this means &mdash; including for you</h2>
+      <p class="text-gray-700 leading-8 text-[17px] mb-4">For builders and operators, the uncomfortable truth stays the same: the winning skill isn&rsquo;t building bigger models. It&rsquo;s the boring work &mdash; data governance, evaluation, monitoring, integration. The moat is engineering discipline, not model IQ.</p>
+      <p class="text-gray-700 leading-8 text-[17px] mb-3">For everyone else, the historical playbook is unglamorous but reliable:</p>
+      <ul class="space-y-2 text-[17px] text-gray-700 mb-6 ml-1">
+        <li><i class="fa-solid fa-arrow-up-right-dots text-[#2563EB] mr-2"></i><strong>Don&rsquo;t chase the top.</strong> When the people around you who never touch stocks start trading AI names, that&rsquo;s the most dangerous signal.</li>
+        <li><i class="fa-solid fa-piggy-bank text-[#2563EB] mr-2"></i><strong>Hold cash for the low.</strong> After the burst the market grinds sideways at the bottom &mdash; the best entry into the next big cycle.</li>
+        <li><i class="fa-solid fa-screwdriver-wrench text-[#2563EB] mr-2"></i><strong>Bet on boring engineering capability.</strong> The survivors are the ones who made data governance, evaluation, and operations genuinely solid.</li>
+      </ul>
+      <div class="bg-[#2563EB]/10 border border-[#2563EB]/30 rounded-xl p-6">
+        <p class="text-gray-800 text-[17px] leading-8">History doesn&rsquo;t repeat, but it rhymes closely. The AI revolution&rsquo;s success will come with a burst &mdash; and the burst won&rsquo;t kill the technology. It only kills inflated valuations and fragile business models. AI is mid-infrastructure, high in the cycle. The profit peak is 2&ndash;3 years out; the shakeout isn&rsquo;t far (2027&ndash;2029). The real opportunity isn&rsquo;t chasing the peak &mdash; it&rsquo;s the companies with real use cases, real cash flow, and real engineering that surface after the burst.</p>
+        <p class="text-[#1E3A8A] text-xl font-semibold mt-4 leading-snug"><i class="fa-solid fa-circle-question mr-2"></i>Which layer are you betting on &mdash; the model, or the application?</p>
+      </div>
+    </section>
+
+    <p class="text-gray-500 text-sm border-t border-gray-200 pt-6"><i class="fa-solid fa-book-open mr-1"></i>Based on Carlota Perez, <em>Technological Revolutions and Financial Capital</em> (2002). Cycle-timing figures and the 2027&ndash;2029 window are projections drawn from industry-cycle commentary, presented as scenarios rather than forecasts.</p>
+
+  </main>
+</div>
+
+<!-- =================================================================== -->
+<!-- ============================= 中文 =============================== -->
+<!-- =================================================================== -->
+<div id="article-cn" class="hidden">
+
+  <!-- ===== HERO ===== -->
+  <div class="bg-black text-white px-6 py-12">
+    <div class="max-w-[880px] mx-auto">
+      <p class="text-[#2563EB] text-xs font-semibold tracking-widest uppercase mb-3"><i class="fa-solid fa-clock-rotate-left mr-1"></i>长文 &middot; 精选 &middot; 约 10 分钟</p>
+      <h1 class="text-3xl md:text-5xl font-bold leading-tight">从历史的镜子看 AI 革命</h1>
+      <p class="text-gray-300 text-lg md:text-xl mt-4 font-medium">所有人都在担心的 AI「泡沫」？一本 2002 年的书早就写好了结局 &mdash; <span class="text-[#2563EB]">两轮泡沫，而非一轮</span>，赢家只在破裂之后才出现。</p>
+      <div class="flex flex-wrap gap-x-6 gap-y-1 mt-6 text-sm text-gray-400">
+        <span><i class="fa-solid fa-user-pen mr-1"></i>祁新帅 (Xinshuai Qi), Ph.D.</span>
+        <span><i class="fa-regular fa-calendar mr-1"></i>2026 年 7 月</span>
+        <span><i class="fa-solid fa-book mr-1"></i>基于卡洛塔·佩雷斯《技术革命与金融资本》(2002)</span>
+      </div>
+    </div>
+  </div>
+
+  <main class="max-w-[880px] mx-auto px-6 py-12">
+
+    <p class="prose-lead text-gray-700 mb-4">2002 年，经济学家卡洛塔·佩雷斯（Carlota Perez）出版了《技术革命与金融资本》。她研究了运河、铁路、钢铁、电力和互联网这五次大浪潮，发现历史不会简单重复，但会高度押韵 &mdash; 而且押得足够精确，可以拿来用。</p>
+    <p class="text-gray-700 leading-8 text-[17px] mb-10">下面是这套规律，以及 AI 今天所处的位置。</p>
+
+    <!-- 1 -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3"><i class="fa-solid fa-layer-group text-[#2563EB] mr-2"></i>一 &middot; 每次革命都有两轮泡沫，不是一轮</h2>
+      <p class="text-gray-700 leading-8 text-[17px] mb-4">这是大多数人忽略的地方。一次技术革命不是膨胀一次，而是膨胀两次。</p>
+      <div class="grid md:grid-cols-2 gap-4 mb-4">
+        <div class="bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
+          <p class="text-[#2563EB] text-xs font-bold uppercase tracking-wider mb-2"><i class="fa-solid fa-1 mr-1"></i>第一轮 &middot; 基础设施</p>
+          <p class="text-gray-700 text-[15px] leading-7">修铁路、建电网、铺光纤、堆算力。投资巨大、逻辑成立、回报滞后 &mdash; 资本在现金流出来之前很多年就涌了进去。</p>
+        </div>
+        <div class="bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
+          <p class="text-[#2563EB] text-xs font-bold uppercase tracking-wider mb-2"><i class="fa-solid fa-2 mr-1"></i>第二轮 &middot; 应用爆发</p>
+          <p class="text-gray-700 text-[15px] leading-7">只有当技术成熟、成本下降之后，真正赚钱的公司才会出现。</p>
+        </div>
+      </div>
+      <p class="text-gray-700 leading-8 text-[17px]">每一轮浪潮都留下实体遗产：铁路泡沫留下铁路网，互联网泡沫留下光纤和云计算，AI 泡沫将沉淀一张全球算力与电力的网络。我们现在还在第一轮里 &mdash; 第二轮的赢家，大多还不存在，或者小到看不见。</p>
+    </section>
+
+    <!-- 2 -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3"><i class="fa-solid fa-arrow-trend-down text-[#2563EB] mr-2"></i>二 &middot; 泡沫破裂 ≠ 技术失败</h2>
+      <p class="text-gray-700 leading-8 text-[17px] mb-4">铁路崩过，电力崩过，互联网 2000 年也崩过。但它们最后都成了现代世界赖以运转的隐形基础设施。</p>
+      <p class="text-gray-700 leading-8 text-[17px]">破裂的本质不是「技术失败」，而是「资本跑得太快，现实跟不上」。破裂只做一件有用的事：清理过度的硬件冗余。而正因为有冗余，基础设施价格才会大幅下降 &mdash; 这才最终点燃了应用层的爆发。便宜的光纤造就了 AWS，便宜的算力会造就下一个东西。过度投资不是周期里的 bug，它就是那个机制本身。</p>
+    </section>
+
+    <!-- 3 -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3"><i class="fa-solid fa-chart-line text-[#2563EB] mr-2"></i>三 &middot; 技术成熟度曲线是真实的 &mdash; 而 AI 正处在一个已知点上</h2>
+      <p class="text-gray-700 leading-8 text-[17px] mb-4">Gartner 的曲线 &mdash; 技术萌芽 &rarr; 期望膨胀 &rarr; 泡沫破裂低谷 &rarr; 稳步爬升 &rarr; 生产力平稳 &mdash; 不是营销话术。互联网严格地走过了这条曲线，AI 正在走。</p>
+      <div class="bg-[#2563EB]/10 border border-[#2563EB]/30 rounded-xl p-5">
+        <p class="text-[#1E3A8A] text-[17px] leading-8"><i class="fa-solid fa-location-crosshairs mr-2"></i><strong>我的判断：</strong>AI 正处在「期望膨胀期」的后段，开始向「破裂低谷」交棒。我们已接近基建投资的利润顶，离出清还有 2&ndash;3 年。</p>
+      </div>
+    </section>
+
+    <!-- 4 -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3"><i class="fa-solid fa-trowel text-[#2563EB] mr-2"></i>四 &middot;「卖铲子」的先涨</h2>
+      <p class="text-gray-700 leading-8 text-[17px] mb-4">每一轮康波周期的复苏期，最先被重新定价的都是「卖铲子」这一环。</p>
+      <ul class="space-y-2 text-[17px] text-gray-700 mb-4 ml-1">
+        <li><i class="fa-solid fa-train text-[#2563EB] mr-2"></i>铁路时代：铁轨和重工业。</li>
+        <li><i class="fa-solid fa-bolt text-[#2563EB] mr-2"></i>电力时代：发电设备。</li>
+        <li><i class="fa-solid fa-network-wired text-[#2563EB] mr-2"></i>互联网时代：光缆、路由器、交换机。</li>
+        <li><i class="fa-solid fa-microchip text-[#2563EB] mr-2"></i>AI 时代：GPU、服务器、数据中心，以及越来越关键的 &mdash; 电力本身。</li>
+      </ul>
+      <p class="text-gray-700 leading-8 text-[17px]">这正是市场率先定价的对象。这很正常。但它标记的是<em>我们在周期里的位置</em>，而不是长期价值最终会沉淀的地方。</p>
+    </section>
+
+    <!-- 5 -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3"><i class="fa-solid fa-timeline text-[#2563EB] mr-2"></i>五 &middot; 时间表：一个 18&ndash;20 年的超级周期</h2>
+      <p class="text-gray-700 leading-8 text-[17px] mb-5">产业周期研究（包括贝莱德等机构的工作）把 AI 超级周期框定为大约 18&ndash;20 年，2023&ndash;2042，分四幕：</p>
+      <div class="space-y-3 mb-5">
+        <div class="bg-white border border-gray-200 border-l-4 border-l-[#2563EB] rounded-lg p-4 shadow-sm"><span class="text-[#2563EB] font-bold text-sm">2023&ndash;2028</span><span class="text-gray-900 font-semibold ml-3">基建狂热期。</span><span class="text-gray-600 text-[15px] block mt-1">算力、大模型、数据中心疯狂投资。先砸钱，后讲纪律。</span></div>
+        <div class="bg-white border border-gray-200 border-l-4 border-l-[#0284C7] rounded-lg p-4 shadow-sm"><span class="text-[#0284C7] font-bold text-sm">2028&ndash;2033</span><span class="text-gray-900 font-semibold ml-3">应用落地 + 泡沫出清期。</span><span class="text-gray-600 text-[15px] block mt-1">基建过剩、价格战、大量「AI 公司」倒闭 &mdash; 而真正能用的应用开始赚钱。</span></div>
+        <div class="bg-white border border-gray-200 border-l-4 border-l-[#1E3A8A] rounded-lg p-4 shadow-sm"><span class="text-[#1E3A8A] font-bold text-sm">2033&ndash;2038</span><span class="text-gray-900 font-semibold ml-3">商业繁荣期。</span><span class="text-gray-600 text-[15px] block mt-1">AI 全面渗透千行百业。</span></div>
+        <div class="bg-white border border-gray-200 border-l-4 border-l-gray-900 rounded-lg p-4 shadow-sm"><span class="text-gray-900 font-bold text-sm">2038&ndash;2042</span><span class="text-gray-900 font-semibold ml-3">平台固化期。</span><span class="text-gray-600 text-[15px] block mt-1">格局稳定，少数巨头垄断。</span></div>
+      </div>
+      <p class="text-gray-700 leading-8 text-[17px]">多个来源指向 <strong>2027&ndash;2029</strong> 是破裂的关键窗口。可能的标志性事件：英伟达、OpenAI 等估值下跌约 70%；纳斯达克 100 回调 30&ndash;40%（而非 2000 年那种约 78% 的崩盘）；70&ndash;80% 的 AI 初创企业倒闭。</p>
+    </section>
+
+    <!-- 6 -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3"><i class="fa-solid fa-scale-unbalanced text-[#2563EB] mr-2"></i>六 &middot; 这不是 2000 年 &mdash; 而差异至关重要</h2>
+      <ul class="space-y-3 text-[17px] text-gray-700 mb-4">
+        <li><i class="fa-solid fa-circle-dot text-[#2563EB] mr-2"></i>2000 年是<strong>纯故事泡沫</strong>：零收入 + 无限故事。2026 年是<strong>估值过热泡沫</strong>：真实收入 + 过高估值。</li>
+        <li><i class="fa-solid fa-circle-dot text-[#2563EB] mr-2"></i>2000 年破产的公司会归零；2026 年若回调，受影响的是微软、谷歌、英伟达 &mdash; 这些公司作为生意仍在赚钱，只是估值倍数被压缩。股票变便宜了，现金流并没有消失。</li>
+        <li><i class="fa-solid fa-circle-dot text-[#2563EB] mr-2"></i>AI 有<strong>国家信用支撑</strong>。中美都把 AI 视为战略优先级 &mdash; 这是互联网公司当年没有的「制度护城河」。</li>
+      </ul>
+      <p class="text-gray-700 leading-8 text-[17px]">所以真正值得相信的，不是「某一年一定崩」，而是这套演进路径本身：<em>基础设施过度投资 &rarr; 成本快速下降 &rarr; 应用爆发 &rarr; 商业模式重构。</em>如果 AI 遵循这一规律，最大的赢家很可能不是拥有最强模型的公司，而是能把 AI 最深地嵌入行业工作流、持续积累数据飞轮、并构建系统级工程能力的企业。</p>
+    </section>
+
+    <!-- 7 -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3"><i class="fa-solid fa-filter text-[#2563EB] mr-2"></i>七 &middot; 泡沫破裂后，市场真正会奖励什么</h2>
+      <p class="text-gray-700 leading-8 text-[17px] mb-5">低谷是一台极其残酷、也极其高效的分拣机。狂热期人人都能靠故事融资；破裂后金融资本退场，生产资本接管 &mdash; 核心问题从「未来能变多大」切换为「眼下能省多少、赚多少」。四道硬标准，把幸存者和被淘汰者分开：</p>
+      <div class="grid md:grid-cols-2 gap-4">
+        <div class="bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
+          <h3 class="text-base font-bold text-gray-900 mb-2"><i class="fa-solid fa-money-bill-trend-up text-[#2563EB] mr-2"></i>标准一 &middot; 接管成本中心</h3>
+          <p class="text-gray-600 text-[15px] leading-7">锦上添花的「增强型工具」（帮你快 10% 的副驾驶）在紧缩期会被第一个砍掉。幸存者卖的是<strong>劳动结果即服务</strong>：直接进入损益表，把一项真实成本（客服、基础代码、法律初审）降低 80% 以上，或直接创造全新收入流。</p>
+        </div>
+        <div class="bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
+          <h3 class="text-base font-bold text-gray-900 mb-2"><i class="fa-solid fa-link text-[#2563EB] mr-2"></i>标准二 &middot; 深度嵌入工作流</h3>
+          <p class="text-gray-600 text-[15px] leading-7">「技术领先」是极脆弱的壁垒 &mdash; 模型会快速商品化。用户复制粘贴进去、用完即走，明天就能换掉你；而如果它打通了 ERP、CRM、知识库并围绕自己重构了流程，替换它就意味着一次组织重构。</p>
+        </div>
+        <div class="bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
+          <h3 class="text-base font-bold text-gray-900 mb-2"><i class="fa-solid fa-calculator text-[#2563EB] mr-2"></i>标准三 &middot; 单位经济自洽</h3>
+          <p class="text-gray-600 text-[15px] leading-7">狂热期没人算算力；破裂后单位经济必须为正 &mdash; 不能再用 1 美元算力去生成 0.1 美元的产出。随着芯片演进、推理走向端侧 / 小模型，变现收入必须覆盖折旧与边际推理成本。</p>
+        </div>
+        <div class="bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
+          <h3 class="text-base font-bold text-gray-900 mb-2"><i class="fa-solid fa-database text-[#2563EB] mr-2"></i>标准四 &middot; 掌控独家上下文</h3>
+          <p class="text-gray-600 text-[15px] leading-7">幸存者几乎都不是「大模型的壳」，而是「行业专有数据与工作流的容器」。大模型提供通用智力，真正解决难题靠的是行业沉淀数十年的非公开数据、合规规范和专家经验。<strong>模型 + 专有 Context</strong>，才是护城河。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8 -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3"><i class="fa-solid fa-landmark text-[#2563EB] mr-2"></i>八 &middot; 历史已经跑过这场测试</h2>
+      <div class="overflow-x-auto mb-5">
+        <table class="w-full text-sm border-collapse">
+          <thead>
+            <tr>
+              <th class="bg-[#1E3A8A] text-white font-medium text-left px-4 py-2"><i class="fa-regular fa-clock mr-1"></i>革命周期</th>
+              <th class="bg-[#1E3A8A] text-white font-medium text-left px-4 py-2"><i class="fa-solid fa-ghost mr-1"></i>狂热期的「伪应用」</th>
+              <th class="bg-[#1E3A8A] text-white font-medium text-left px-4 py-2"><i class="fa-solid fa-trophy mr-1"></i>存活并爆发的真应用</th>
+            </tr>
+          </thead>
+          <tbody class="text-gray-700">
+            <tr class="border-b border-[#2563EB]/30"><td class="px-4 py-3 font-medium text-[#2563EB]">蒸汽与铁路 (1840s)</td><td class="px-4 py-3">投机性、无货源的「观光线路」</td><td class="px-4 py-3">连通煤矿、港口、工业重镇的干线货运网 &mdash; 降低全社会物流成本</td></tr>
+            <tr class="border-b border-[#2563EB]/30"><td class="px-4 py-3 font-medium text-[#2563EB]">电力与批量生产 (1920s)</td><td class="px-4 py-3">只是把蒸汽机换成电机的旧工厂</td><td class="px-4 py-3">围绕流水线重新设计的（福特）&mdash; 效率与良率的阶梯式飞跃</td></tr>
+            <tr class="border-b border-[#2563EB]/30"><td class="px-4 py-3 font-medium text-[#2563EB]">互联网 (2000s)</td><td class="px-4 py-3">Pets.com &mdash; 无履约能力、纯眼球经济</td><td class="px-4 py-3">亚马逊（电商 + AWS）、谷歌（精准搜索广告）在基建降价后胜出</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="bg-gray-900 text-gray-100 rounded-xl p-5 text-[15px] leading-8 font-mono overflow-x-auto">
+        <div><span class="text-[#60A5FA]">[互联网 2000]</span> &rarr; 出清过剩光纤/服务器 &rarr; <span class="text-white">亚马逊 / 谷歌</span></div>
+        <div><span class="text-[#60A5FA]">[移动互联网 2011]</span> &rarr; 出清山寨应用狂热 &rarr; <span class="text-white">移动支付 / Uber / 字节</span></div>
+        <div><span class="text-[#60A5FA]">[AI 革命 2027+]</span> &rarr; 出清算力过剩 + 套壳 SaaS &rarr; <span class="text-white">垂直 Agent / 具身智能 / AI 驱动药物与工程</span></div>
+      </div>
+    </section>
+
+    <!-- 9 -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3"><i class="fa-solid fa-trophy text-[#2563EB] mr-2"></i>九 &middot; 那么 2030 年代的赢家从哪来？</h2>
+      <p class="text-gray-700 leading-8 text-[17px] mb-5">如果 2027&ndash;2029 出清 AI 估值泡沫、基础设施价格暴跌，以下三类应用形态最有可能开启下一个黄金时代：</p>
+      <div class="space-y-4">
+        <div class="bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
+          <h3 class="text-base font-bold text-gray-900 mb-1"><i class="fa-solid fa-sitemap text-[#2563EB] mr-2"></i>高风险垂直行业的「AI 架构重构者」</h3>
+          <p class="text-gray-600 text-[15px] leading-7">法律合规初审、临床前分子筛选、复杂金融分析、芯片 EDA 辅助。这些行业单位时间成本极高；AI 不需要 100% 替代人类 &mdash; 只要把 100 小时的高薪专家工作压缩到 2 小时（Human-in-the-loop），就能创造极高溢价。</p>
+        </div>
+        <div class="bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
+          <h3 class="text-base font-bold text-gray-900 mb-1"><i class="fa-solid fa-robot text-[#2563EB] mr-2"></i>物理世界接管者（Physical AI）</h3>
+          <p class="text-gray-600 text-[15px] leading-7">工业自动化机器人、特种场景无人化运维、自动驾驶物流。纯软件的增效有天花板；把算力转化为物理世界的生产力、替代昂贵且短缺的技术劳动力，是消化过剩算力、实现巨额 ROI 的最佳出口。</p>
+        </div>
+        <div class="bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
+          <h3 class="text-base font-bold text-gray-900 mb-1"><i class="fa-solid fa-diagram-project text-[#2563EB] mr-2"></i>企业级智能体流转系统</h3>
+          <p class="text-gray-600 text-[15px] leading-7">跨系统的 ERP / CRM 自动化：供应链补货、发票对账、客户理赔，端到端跑完。从「对话（Chat）」演进到「执行（Action）」&mdash; 成为企业运营中不可或缺的「数字员工层」。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10 -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3"><i class="fa-solid fa-flag-checkered text-[#2563EB] mr-2"></i>十 &middot; 这意味着什么 &mdash; 也包括对你</h2>
+      <p class="text-gray-700 leading-8 text-[17px] mb-4">对建造者和经营者，那个不太舒服的真相始终没变：真正的护城河不是更大的模型，而是那些「无聊」的工程 &mdash; 数据治理、评估体系、运维监控、系统集成。护城河是工程纪律，不是模型智商。</p>
+      <p class="text-gray-700 leading-8 text-[17px] mb-3">对其他所有人，历史的剧本并不炫目，但可靠：</p>
+      <ul class="space-y-2 text-[17px] text-gray-700 mb-6 ml-1">
+        <li><i class="fa-solid fa-arrow-up-right-dots text-[#2563EB] mr-2"></i><strong>不要追高。</strong>当你身边从不碰股票的人都开始聊 AI 概念股时，那是最危险的信号。</li>
+        <li><i class="fa-solid fa-piggy-bank text-[#2563EB] mr-2"></i><strong>留现金等低点。</strong>破裂后市场会在底部低位震荡 &mdash; 那是布局下一个大周期的最好窗口。</li>
+        <li><i class="fa-solid fa-screwdriver-wrench text-[#2563EB] mr-2"></i><strong>押注「无聊的工程能力」。</strong>能穿越泡沫的公司，是把数据治理、评估、运维真正做扎实的那一批。</li>
+      </ul>
+      <div class="bg-[#2563EB]/10 border border-[#2563EB]/30 rounded-xl p-6">
+        <p class="text-gray-800 text-[17px] leading-8">历史不会简单重复，但韵脚高度相似。AI 革命的成功必然伴随泡沫破裂 &mdash; 而破裂不会杀死技术，只会杀死高估的估值和脆弱的商业模式。当前 AI 处于基建期中段、周期高位。离利润顶还有 2&ndash;3 年，离出清（2027&ndash;2029）已经不远。真正的机会不在泡沫顶峰追高，而在破裂之后 &mdash; 那些有真实场景、现金流和工程能力的公司会浮出水面。</p>
+        <p class="text-[#1E3A8A] text-xl font-semibold mt-4 leading-snug"><i class="fa-solid fa-circle-question mr-2"></i>你押注哪一边 &mdash; 模型层，还是应用层？</p>
+      </div>
+    </section>
+
+    <p class="text-gray-500 text-sm border-t border-gray-200 pt-6"><i class="fa-solid fa-book-open mr-1"></i>基于卡洛塔·佩雷斯《技术革命与金融资本》(2002)。周期时间点与 2027&ndash;2029 窗口为基于产业周期评论的推演场景，非确定性预测。</p>
+
+  </main>
+</div>
+
+<!-- ============ SHARED FOOTER ============ -->
+<footer class="border-t border-gray-200 bg-white">
+  <div class="max-w-[880px] mx-auto px-6 py-8 text-sm text-gray-500">
+    <p><i class="fa-solid fa-user mr-1"></i>Xinshuai Qi (Chee), Ph.D. &middot; St. Louis, MO</p>
+    <p class="mt-1">
+      <a href="mailto:qxs718@gmail.com" class="text-[#2563EB] hover:underline"><i class="fa-solid fa-envelope mr-1"></i>qxs718@gmail.com</a> &middot;
+      <a href="https://www.linkedin.com/in/xinshuaiqi" target="_blank" rel="noopener" class="text-[#2563EB] hover:underline"><i class="fa-brands fa-linkedin mr-1"></i>LinkedIn</a> &middot;
+      <a href="/research/" class="text-[#2563EB] hover:underline"><i class="fa-solid fa-arrow-left mr-1"></i>Back to Research</a>
+    </p>
+  </div>
+</footer>
+
+<script>
+  function setLang(lang){
+    var en = document.getElementById('article-en');
+    var cn = document.getElementById('article-cn');
+    var btnEn = document.getElementById('btn-en');
+    var btnCn = document.getElementById('btn-cn');
+    var isCn = (lang === 'cn');
+    en.classList.toggle('hidden', isCn);
+    cn.classList.toggle('hidden', !isCn);
+    // active button styling
+    btnCn.className = 'px-4 py-1.5 font-medium transition border-l border-gray-200 ' + (isCn ? 'bg-[#2563EB] text-white' : 'bg-white text-gray-600 hover:text-[#2563EB]');
+    btnEn.className = 'px-4 py-1.5 font-medium transition ' + (isCn ? 'bg-white text-gray-600 hover:text-[#2563EB]' : 'bg-[#2563EB] text-white');
+    document.documentElement.lang = isCn ? 'zh' : 'en';
+    try { localStorage.setItem('ai-rev-lang', lang); } catch(e){}
+    window.scrollTo({top:0});
+  }
+  (function(){
+    var params = new URLSearchParams(window.location.search);
+    var pref = params.get('lang');
+    if(!pref){ try { pref = localStorage.getItem('ai-rev-lang'); } catch(e){} }
+    setLang(pref === 'cn' ? 'cn' : 'en');
+  })();
+</script>
+
+</body>
+</html>
