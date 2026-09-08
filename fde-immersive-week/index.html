@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>From Waterfall to Venn Diagrams: What a Week of Immersive FDE Work Taught Me — Xinshuai Qi, Ph.D.</title>
+<meta name="description" content="Lessons from a week of immersive Forward Deployed Engineer work: overlapping disciplines, AI-native delivery, new team structures, and the skills enterprise leaders should build now.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="From Waterfall to Venn Diagrams: What a Week of Immersive FDE Work Taught Me">
+<meta property="og:description" content="Ten projects, 16 pods, and one lesson: AI-native delivery turns the traditional development relay race into an overlapping system of work.">
+<meta property="og:url" content="https://xinshuaiqi.github.io/fde-immersive-week/">
+<meta property="og:image" content="https://xinshuaiqi.github.io/img/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="From Waterfall to Venn Diagrams">
+<meta name="twitter:description" content="What a week of immersive FDE work taught me about AI-native delivery, talent, and enterprise advantage.">
+<meta name="twitter:image" content="https://xinshuaiqi.github.io/img/og-image.png">
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<script>
+  tailwind.config = { theme: { extend: { fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] } } } }
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  .article-copy p { margin-bottom: 1.25rem; }
+  .article-copy li { margin-bottom: 0.8rem; }
+  .article-copy strong { color: #111827; }
+</style>
+</head>
+<body class="bg-white text-gray-900 font-sans antialiased">
+
+<!-- ===== NAV ===== -->
+<header class="border-b border-gray-200 sticky top-0 bg-white/90 backdrop-blur z-50">
+  <div class="max-w-[920px] mx-auto px-6 py-3 flex items-center justify-between gap-4">
+    <a href="/research/" class="text-sm font-semibold text-gray-900 hover:text-blue-600 transition">
+      <i class="fa-solid fa-arrow-left-long mr-2 text-gray-400"></i>Research &amp; Writing
+    </a>
+    <a href="/" class="text-sm text-gray-500 hover:text-blue-600 transition">
+      <i class="fa-solid fa-house mr-1.5"></i>Xinshuai Qi
+    </a>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<div class="bg-gray-950 text-white">
+  <div class="max-w-[920px] mx-auto px-6 py-14 md:py-20">
+    <p class="text-blue-400 text-xs font-bold tracking-[0.18em] uppercase mb-4">
+      <i class="fa-solid fa-diagram-project mr-2"></i>Field Notes &middot; Forward Deployed Engineering &middot; Featured
+    </p>
+    <h1 class="text-4xl md:text-6xl font-extrabold leading-[1.08] tracking-tight max-w-4xl">From Waterfall to Venn Diagrams: What a Week of Immersive FDE Work Taught Me</h1>
+    <p class="text-gray-300 text-lg md:text-xl leading-8 mt-6 max-w-3xl">Ten projects. Sixteen pods. One week inside a new model of delivery &mdash; where disciplines overlap, everyone builds, and human judgment becomes more valuable precisely because AI can do more.</p>
+    <div class="flex flex-wrap gap-x-6 gap-y-2 mt-7 text-sm text-gray-400">
+      <span><i class="fa-solid fa-user-pen mr-1.5"></i>Xinshuai Qi, Ph.D.</span>
+      <span><i class="fa-regular fa-calendar mr-1.5"></i>September 2026</span>
+      <span><i class="fa-regular fa-clock mr-1.5"></i>8-minute read</span>
+    </div>
+  </div>
+</div>
+
+<main class="max-w-[920px] mx-auto px-6 py-12 md:py-16 article-copy text-[17px] leading-8 text-gray-700">
+
+  <!-- ===== CONTEXT ===== -->
+  <section class="mb-14">
+    <div class="flex items-center gap-3 mb-5">
+      <span class="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 grid place-items-center"><i class="fa-solid fa-location-dot"></i></span>
+      <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-gray-900">Context</h2>
+    </div>
+    <p class="text-xl leading-9 text-gray-700">It was a full week &mdash; <strong>10 projects, 16 pods running in parallel.</strong> A few weeks ago, I took part in an immersive Forward Deployed Engineer (FDE) project experience at Deloitte University (DU). I wanted to organize my thoughts and share what I took away from it.</p>
+  </section>
+
+  <!-- ===== MODEL SHIFT ===== -->
+  <section class="mb-16">
+    <div class="flex items-center gap-3 mb-5">
+      <span class="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 grid place-items-center"><i class="fa-solid fa-arrows-spin"></i></span>
+      <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-gray-900">What Has to Change: From Waterfall to Venn Diagram</h2>
+    </div>
+    <p>The development model is shifting from Waterfall to something closer to a Venn diagram. Product Design, Architecture, Data, AI, Test, DevOps, and CI/CD are no longer a relay race of sequential handoffs. They overlap, and they happen at the same time, in the same room.</p>
+
+    <div class="grid md:grid-cols-[1fr_auto_1fr] gap-5 items-stretch my-9" aria-label="Comparison of waterfall delivery and overlapping FDE delivery">
+      <div class="rounded-2xl border border-gray-200 bg-gray-50 p-6">
+        <p class="text-xs font-bold tracking-widest uppercase text-gray-500 mb-4"><i class="fa-solid fa-water mr-2"></i>Traditional waterfall</p>
+        <div class="space-y-2 text-sm font-semibold text-gray-600">
+          <div class="rounded-lg border border-gray-200 bg-white px-4 py-2">Design</div>
+          <div class="text-center text-gray-300"><i class="fa-solid fa-arrow-down"></i></div>
+          <div class="rounded-lg border border-gray-200 bg-white px-4 py-2">Architecture &amp; Data</div>
+          <div class="text-center text-gray-300"><i class="fa-solid fa-arrow-down"></i></div>
+          <div class="rounded-lg border border-gray-200 bg-white px-4 py-2">Build &amp; Test</div>
+          <div class="text-center text-gray-300"><i class="fa-solid fa-arrow-down"></i></div>
+          <div class="rounded-lg border border-gray-200 bg-white px-4 py-2">Deploy</div>
+        </div>
+      </div>
+      <div class="hidden md:grid place-items-center text-blue-600 text-xl"><i class="fa-solid fa-arrow-right-long"></i></div>
+      <div class="rounded-2xl border border-blue-200 bg-blue-50/60 p-6 overflow-hidden">
+        <p class="text-xs font-bold tracking-widest uppercase text-blue-700 mb-4"><i class="fa-solid fa-circle-nodes mr-2"></i>AI-native FDE model</p>
+        <div class="relative h-64 max-w-xs mx-auto" aria-hidden="true">
+          <div class="absolute w-36 h-36 rounded-full border-2 border-blue-400 bg-blue-200/50 left-4 top-3 grid place-items-center text-sm font-bold text-blue-950">Product<br>Design</div>
+          <div class="absolute w-36 h-36 rounded-full border-2 border-cyan-400 bg-cyan-200/50 right-4 top-3 grid place-items-center text-sm font-bold text-cyan-950">Data &amp;<br>Architecture</div>
+          <div class="absolute w-36 h-36 rounded-full border-2 border-violet-400 bg-violet-200/50 left-1/2 -translate-x-1/2 bottom-3 grid place-items-center text-sm font-bold text-violet-950">AI, Test &amp;<br>DevOps</div>
+          <div class="absolute inset-0 grid place-items-center pt-4 text-[11px] font-extrabold uppercase tracking-wide text-gray-950">Shared<br>context</div>
+        </div>
+      </div>
+    </div>
+
+    <ul class="space-y-3 pl-0 list-none">
+      <li class="flex gap-3"><i class="fa-solid fa-arrows-left-right-to-line text-blue-600 mt-2 shrink-0"></i><span>Everyone needs to stretch the horizontal bar of their T-shaped skill set &mdash; the breadth, not just the depth.</span></li>
+      <li class="flex gap-3"><i class="fa-solid fa-tree text-blue-600 mt-2 shrink-0"></i><span><strong>Building your own knowledge tree &mdash; your own knowledge system &mdash; matters more now than it ever has.</strong> The minutiae of execution can be handed off to AI. The people who survive in this new team model are the ones with big-picture thinking, cross-disciplinary range, strong communication, sharp judgment, and good questions. People with a narrow, single-track knowledge base will struggle to keep pace &mdash; they are behind before the project even starts, and just keeping up will already feel like an achievement. A real, substantial contribution becomes rare, or very limited.</span></li>
+    </ul>
+  </section>
+
+  <!-- ===== WAYS OF WORKING ===== -->
+  <section class="mb-16">
+    <div class="flex items-center gap-3 mb-5">
+      <span class="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 grid place-items-center"><i class="fa-solid fa-laptop-code"></i></span>
+      <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-gray-900">New Ways of Working</h2>
+    </div>
+    <p class="text-xl leading-9"><strong>Vibe coding is becoming the new default hiring skill</strong> &mdash; as basic as PowerPoint or Word:</p>
+    <div class="grid md:grid-cols-3 gap-4 my-7">
+      <div class="rounded-xl border border-gray-200 p-5"><i class="fa-brands fa-github text-2xl text-gray-900"></i><h3 class="font-bold text-gray-900 mt-3 mb-1">Version control</h3><p class="text-sm leading-6 mb-0">GitHub is table stakes for everyone, not just “technical people.”</p></div>
+      <div class="rounded-xl border border-gray-200 p-5"><i class="fa-solid fa-terminal text-2xl text-blue-600"></i><h3 class="font-bold text-gray-900 mt-3 mb-1">Prompt engineering</h3><p class="text-sm leading-6 mb-0">Communicating intent to AI is now a core job requirement.</p></div>
+      <div class="rounded-xl border border-gray-200 p-5"><i class="fa-solid fa-people-group text-2xl text-violet-600"></i><h3 class="font-bold text-gray-900 mt-3 mb-1">Agent crews</h3><p class="text-sm leading-6 mb-0">The multiplier is designing skills and assembling your own agent crew.</p></div>
+    </div>
+
+    <p>The way teams actually operate is shifting too:</p>
+    <ul class="space-y-3 pl-0 list-none">
+      <li class="flex gap-3"><i class="fa-solid fa-clipboard-list text-blue-600 mt-2 shrink-0"></i><span>When every team member is moving at full speed, <strong>how you handle coordination and documentation becomes critical</strong> &mdash; and the community is still figuring out best practices. This is exactly why every project still needs a lead or manager; the “middle management is dead” theory does not hold up. But flat structures, small teams, and decentralized organizations are absolutely where things are heading.</span></li>
+      <li class="flex gap-3"><i class="fa-solid fa-gauge-high text-blue-600 mt-2 shrink-0"></i><span><strong>People who cannot adapt to this way of working will get phased out. Given a choice between a 10x employee and a 1x employee, no company is choosing the 1x employee.</strong></span></li>
+      <li class="flex gap-3"><i class="fa-solid fa-brain text-blue-600 mt-2 shrink-0"></i><span>Every team member needs to get good at switching between fast and slow thinking. A leadership mindset is no longer a nice-to-have &mdash; it is a must-have.</span></li>
+      <li class="flex gap-3"><i class="fa-solid fa-briefcase text-blue-600 mt-2 shrink-0"></i><span>Project experience is still hard currency that holds its value.</span></li>
+      <li class="flex gap-3"><i class="fa-solid fa-graduation-cap text-blue-600 mt-2 shrink-0"></i><span>The value of specialized expertise is collapsing in the face of AI. Most MBA- or PhD-level knowledge is no longer a moat &mdash; it is a low step that most people can now climb over.</span></li>
+      <li class="flex gap-3"><i class="fa-solid fa-bowl-rice text-blue-600 mt-2 shrink-0"></i><span><strong>A lot of “iron rice bowl” skills &mdash; the kind that used to guarantee job security &mdash; are getting shattered by AI: building a polished PowerPoint deck, running Excel like a virtuoso. The new paradigm is HTML.</strong></span></li>
+      <li class="flex gap-3"><i class="fa-solid fa-vial-circle-check text-blue-600 mt-2 shrink-0"></i><span>AI testing and evaluation will be one of the scarcest skills in the near future.</span></li>
+    </ul>
+  </section>
+
+  <!-- ===== LEADERS ===== -->
+  <section class="mb-16">
+    <div class="flex items-center gap-3 mb-5">
+      <span class="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 grid place-items-center"><i class="fa-solid fa-building"></i></span>
+      <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-gray-900">A Note to Enterprise Leaders and Investors</h2>
+    </div>
+    <div class="rounded-2xl bg-gray-950 text-gray-200 p-6 md:p-8 mb-8">
+      <p class="text-xl leading-9 mb-0"><i class="fa-solid fa-bolt text-blue-400 mr-2"></i>The first companies to wire tools like Figma, JIRA, cloud platforms, Outlook, and Teams directly into Claude Code will get something close to faster-than-light gains in enterprise efficiency &mdash; and that turns into a real competitive edge, fast.</p>
+    </div>
+    <ul class="space-y-4 pl-0 list-none">
+      <li class="flex gap-3"><i class="fa-solid fa-shield-halved text-blue-600 mt-2 shrink-0"></i><span>Companies still stuck arguing over data security while keeping their employees’ hands tied risk getting lapped by competitors within a matter of months to a couple of years.</span></li>
+      <li class="flex gap-3"><i class="fa-solid fa-chalkboard-user text-blue-600 mt-2 shrink-0"></i><span>Internal AI training is probably the highest-ROI investment a company can make right now, and giving employees access to frontier AI tools is one of the fastest ways to boost short-term retention and loyalty. Nobody wants to work somewhere with a worse AI environment, even for more money or a bigger title, because nobody wants to sacrifice their future employability. Hiring FDEs externally right now comes at a steep premium &mdash; it is a cash-burning game that only the world’s top 100 companies can really afford. Most companies cannot compete on that basis, so finding the willing, capable people already inside the organization and investing in their training is the best short-term ROI available.</span></li>
+      <li class="flex gap-3"><i class="fa-solid fa-plug-circle-bolt text-blue-600 mt-2 shrink-0"></i><span>Under frameworks like MCP and A2A, the cost of cross-platform integration will keep falling. Going forward, user loyalty to products like SAP and Salesforce, and to the big three cloud platforms, will weaken.</span></li>
+      <li class="flex gap-3"><i class="fa-solid fa-window-maximize text-blue-600 mt-2 shrink-0"></i><span>Platforms like Claude Code, Codex, VS Code, and Cursor will gradually replace traditional work platforms like Windows and Office. Whoever ends up with the largest user base is a strong candidate to become the next tech giant &mdash; the next member of the “Magnificent Seven” (M7).</span></li>
+      <li class="flex gap-3"><i class="fa-solid fa-chart-pie text-blue-600 mt-2 shrink-0"></i><span>Right now, the share of employees who are genuinely fluent in AI is generally under 3%. The AI training market is enormous &mdash; and so is the market for training people to actually use the tools: selling shovels during a gold rush.</span></li>
+      <li class="flex gap-3"><i class="fa-solid fa-user-plus text-blue-600 mt-2 shrink-0"></i><span>The concept of “human resources” is already behind the times. The new paradigm for Human Capital is <strong>Human + AI Agent Capital.</strong></span></li>
+    </ul>
+  </section>
+
+  <!-- ===== REFLECTION ===== -->
+  <section class="mb-16">
+    <div class="flex items-center gap-3 mb-5">
+      <span class="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 grid place-items-center"><i class="fa-solid fa-lightbulb"></i></span>
+      <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-gray-900">Reflecting on the FDE Experience</h2>
+    </div>
+    <p>The most direct takeaway from this week was a new appreciation for how AI and humans relate to each other inside a real project &mdash; and for how human-to-human collaboration itself is changing.</p>
+    <div class="rounded-2xl border-l-4 border-blue-600 bg-blue-50 p-6 md:p-8 my-7">
+      <p class="text-xl md:text-2xl font-semibold leading-9 text-gray-900 mb-0">The shared precondition underneath all of it: everyone on the team needs to know how to vibe code. Once that is in place, project velocity runs at least 3&ndash;5x faster than traditional development, and can peak north of 10x.</p>
+    </div>
+  </section>
+
+  <!-- ===== NOT THE END ===== -->
+  <section class="mb-10">
+    <div class="flex items-center gap-3 mb-5">
+      <span class="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 grid place-items-center"><i class="fa-solid fa-rocket"></i></span>
+      <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-gray-900">Is This the End? Not Even Close</h2>
+    </div>
+    <p>AI still cannot fully operate Windows, macOS, Android, or the browser as an operating environment.</p>
+    <p>IoT integration still has a long way to go, too &mdash; smart cars, smart homes, smart communities, smart factories, smart robotics. There is an enormous amount of room left to build.</p>
+    <p class="text-2xl md:text-3xl font-bold leading-tight text-gray-900 mt-9 mb-0">The shift has started. The operating model is not finished. Neither are we.</p>
+  </section>
+
+  <div class="border-t border-gray-200 pt-8 mt-14 flex flex-wrap items-center justify-between gap-4 text-sm">
+    <a href="/research/" class="font-semibold text-blue-600 hover:underline"><i class="fa-solid fa-arrow-left mr-2"></i>Back to Research &amp; Writing</a>
+    <a href="https://www.linkedin.com/in/xinshuaiqi" target="_blank" rel="noopener" class="font-semibold text-blue-600 hover:underline"><i class="fa-brands fa-linkedin mr-2"></i>Connect on LinkedIn</a>
+  </div>
+</main>
+
+<footer class="border-t border-gray-200 bg-gray-50">
+  <div class="max-w-[920px] mx-auto px-6 py-8 text-sm text-gray-500">
+    <p class="mb-1"><i class="fa-solid fa-user mr-1.5"></i>Xinshuai Qi (Chee), Ph.D. &middot; St. Louis, MO</p>
+    <p class="mb-0"><a href="mailto:qxs718@gmail.com" class="text-blue-600 hover:underline"><i class="fa-solid fa-envelope mr-1.5"></i>qxs718@gmail.com</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
