@@ -21,12 +21,32 @@
 <script>
   tailwind.config = { theme: { extend: { fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] } } } }
 </script>
+<style>
+  .tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 2px 7px;
+    border-radius: 4px;
+    vertical-align: middle;
+    line-height: 1.6;
+  }
+  .tag-blue  { color: #2563eb; background: #eff6ff; border: 1px solid #bfdbfe; }
+  .tag-gray  { color: #4b5563; background: #f9fafb; border: 1px solid #e5e7eb; }
+  .tag-green { color: #15803d; background: #f0fdf4; border: 1px solid #bbf7d0; }
+  .tag-amber { color: #92400e; background: #fffbeb; border: 1px solid #fde68a; }
+  article + article { border-top: 1px solid #f3f4f6; padding-top: 1.5rem; margin-top: 0; }
+  .article-group { margin-top: 1.25rem; }
+  .article-group article:first-child { padding-top: 0; }
+</style>
 </head>
 <body class="bg-white text-gray-800 font-sans">
 
 <!-- ===== NAV ===== -->
 <header class="border-b border-gray-200 sticky top-0 bg-white/90 backdrop-blur z-50">
-  <div class="max-w-3xl mx-auto px-6 py-4 flex items-center justify-between gap-4">
+  <div class="max-w-[1100px] mx-auto px-8 py-4 flex items-center justify-between gap-4">
     <a href="/" class="font-bold text-gray-900">Xinshuai&nbsp;Qi</a>
     <nav class="flex flex-wrap gap-x-5 gap-y-1 text-sm text-gray-500 justify-end">
       <a href="/" class="hover:text-blue-600 transition">Home</a>
@@ -39,68 +59,211 @@
   </div>
 </header>
 
-<main class="max-w-3xl mx-auto px-6 py-14">
+<main class="max-w-[1100px] mx-auto px-8 py-14">
 
   <h1 class="text-4xl font-bold text-gray-900 tracking-tight">Research &amp; Writing</h1>
-  <p class="text-gray-500 mt-2 text-lg">AI systems, agentic consulting, and the human–AI partnership.</p>
+  <p class="text-gray-500 mt-2 text-lg">AI systems, agentic consulting, and the human&ndash;AI partnership.</p>
 
-  <!-- ===== FEATURED EXPLAINERS ===== -->
-  <h2 class="text-2xl font-bold text-gray-900 mt-12 mb-5 pl-3 border-l-4 border-blue-600">Featured explainers</h2>
-  <div id="featured-research" class="space-y-7">
-    <article>
-      <a href="/fde-immersive-week/" class="text-xl font-semibold text-blue-600 hover:underline">From Waterfall to Venn Diagrams: What a Week of Immersive FDE Work Taught Me</a>
-      <span class="ml-2 align-middle text-[11px] font-semibold uppercase tracking-wider text-blue-600 bg-blue-50 border border-blue-200 rounded px-2 py-0.5">New &middot; FDE</span>
-      <p class="text-gray-700 mt-2 leading-8 text-[17px]">Lessons from 10 projects and 16 parallel pods: why AI-native delivery replaces sequential handoffs with overlapping disciplines, why every team member needs to vibe code, and what the shift means for talent, leadership, and enterprise advantage.</p>
-    </article>
-    <article>
-      <a href="/ai-revolution-history/" class="text-xl font-semibold text-blue-600 hover:underline">The AI Revolution Through the Lens of History</a>
-      <span class="ml-2 align-middle text-[11px] font-semibold uppercase tracking-wider text-blue-600 bg-blue-50 border border-blue-200 rounded px-2 py-0.5">EN / 中文</span>
-      <p class="text-gray-700 mt-2 leading-8 text-[17px]">What Carlota Perez's study of five technological revolutions predicts for AI. The pattern that repeats every time &mdash; <strong class="text-gray-900">two bubbles, not one</strong>; a burst that clears infrastructure rather than killing the technology; the 18&ndash;20 year super-cycle with its 2027&ndash;2029 shakeout window; and the four hard tests that decide which applications survive to win the next decade. Bilingual, with an in-page English / 中文 toggle.</p>
-    </article>
-    <article>
-      <a href="/ml-map/" class="text-xl font-semibold text-blue-600 hover:underline">The Unified Enterprise ML Map</a>
-      <p class="text-gray-700 mt-2 leading-8 text-[17px]">A production-grade white paper mapping every major enterprise operational bottleneck &mdash; front office to back office &mdash; to the exact ML, LLM, and agentic-orchestration architecture that resolves it. Covers four dimensions: Front Office yield velocity, Core Supply Chain throughput, Back Office shared-services efficiency, and Platform Foundation governance. Each pattern pairs a probabilistic model with a deterministic boundary so that compliance behavior never depends on what the model generates.</p>
-    </article>
-    <article>
-      <a href="/odi/" class="text-xl font-semibold text-blue-600 hover:underline">Orchestrated Distributed Intelligence (ODI)</a>
-      <p class="text-gray-700 mt-2 leading-8 text-[17px]">A diagram-rich, plain-language explainer of why the future of agentic AI lies not in smarter solo agents, but in orchestrating many agents together with human judgment into adaptive <em>systems of action</em>. Covers the evolution from Systems of Record → Action, the orchestration-layer architecture, and the three ingredients that make it work.</p>
-    </article>
-    <article>
-      <a href="/agentic-consulting/" class="text-xl font-semibold text-blue-600 hover:underline">A New Way of Working — Agentic Consulting</a>
-      <p class="text-gray-700 mt-2 leading-8 text-[17px]">A three-part series on how agentic AI is reshaping the consulting operating model — rethinking delivery, talent, and the manager's role as a <strong class="text-gray-900">systems orchestrator</strong> of human and AI teams.</p>
-    </article>
-    <article>
-      <a href="/anti-bullshit-consulting/" class="text-xl font-semibold text-blue-600 hover:underline">Bullshit Consulting VS First Principle Consulting</a>
-      <span class="ml-2 align-middle text-[11px] font-semibold uppercase tracking-wider text-blue-600 bg-blue-50 border border-blue-200 rounded px-2 py-0.5">中文 / EN</span>
-      <p class="text-gray-700 mt-2 leading-8 text-[17px]">A systematic deconstruction of how the consulting industry produces noise vs. real value &mdash; from role naming and untrained tacit skills to the GenAI/Physical AI value anchors, the art of saying no to pointless work, and the fundamental mindset shift from Manager to Partner. Covers first-principles frameworks for opportunity qualification, solutioning, and SOW design that protect margin and prevent project failure.</p>
-    </article>
+  <!-- ===== NEW HERE CALLOUT ===== -->
+  <div class="mt-8 bg-blue-50 border border-blue-200 rounded-lg px-5 py-4">
+    <p class="text-sm font-semibold text-gray-900 mb-2">New here? Two good starting points:</p>
+    <ul class="space-y-1 text-sm text-gray-700">
+      <li>
+        <span class="text-gray-400 mr-1">For the architecture reader &rarr;</span>
+        <a href="/ml-map/" class="text-blue-600 hover:underline font-medium">The Unified Enterprise ML Map</a>
+      </li>
+      <li>
+        <span class="text-gray-400 mr-1">For the consulting reader &rarr;</span>
+        <a href="/agentic-consulting/" class="text-blue-600 hover:underline font-medium">A New Way of Working &mdash; Agentic Consulting</a>
+      </li>
+    </ul>
   </div>
 
-  <!-- ===== THOUGHT LEADERSHIP ===== -->
-  <h2 class="text-2xl font-bold text-gray-900 mt-14 mb-5 pl-3 border-l-4 border-blue-600">Essays &amp; thought leadership</h2>
-  <ul class="space-y-3 text-[17px] leading-7">
-    <li><a href="https://www.linkedin.com/pulse/from-waterfall-venn-diagrams-what-week-immersive-fde-qi-%25E7%25A5%2581%25E6%2596%25B0%25E5%25B8%2585-ph-d--omczc" target="_blank" rel="noopener" class="text-blue-600 hover:underline">From Waterfall to Venn Diagrams: What a Week of Immersive FDE Work Taught Me</a></li>
-    <li><a href="https://www.linkedin.com/pulse/enterprise-architecture-generative-ai-perspective-qi-%E7%A5%81%E6%96%B0%E5%B8%85-ph-d--qeyrc" target="_blank" rel="noopener" class="text-blue-600 hover:underline">Enterprise Architecture &amp; Generative AI Perspective</a></li>
-    <li><a href="https://www.linkedin.com/pulse/modern-enterprise-operating-system-systematic-guide-qi-%E7%A5%81%E6%96%B0%E5%B8%85-ph-d--lmz6c/" target="_blank" rel="noopener" class="text-blue-600 hover:underline">The Modern Enterprise Operating System — A Systematic Guide</a></li>
-    <li><a href="https://www.linkedin.com/pulse/manager-systems-orchestrator-balancing-human-ai-qi-%E7%A5%81%E6%96%B0%E5%B8%85-ph-d--89ihc/" target="_blank" rel="noopener" class="text-blue-600 hover:underline">Manager as Systems Orchestrator — Balancing Human and AI</a></li>
-    <li><a href="https://www.linkedin.com/pulse/power-human-brain-neural-network-what-most-ai-vs-qi-%E7%A5%81%E6%96%B0%E5%B8%85-ph-d--xur3c/" target="_blank" rel="noopener" class="text-blue-600 hover:underline">The Power of Human Brain vs Neural Network</a></li>
-    <li><a href="https://www.linkedin.com/pulse/humanoid-hard-truth-why-home-factory-trillion-dollar-qi-%E7%A5%81%E6%96%B0%E5%B8%85-ph-d--na5bc" target="_blank" rel="noopener" class="text-blue-600 hover:underline">Humanoid Hard Truth</a></li>
-    <li><a href="https://www.linkedin.com/pulse/coming-era-physical-ai-biopharma-xinshuai-qi-%E7%A5%81%E6%96%B0%E5%B8%85-ph-d--7gvkc/" target="_blank" rel="noopener" class="text-blue-600 hover:underline">The Coming Era of Physical AI in Biopharma</a></li>
-    <li><a href="https://www.linkedin.com/pulse/new-paradigm-generative-ai-biology-xinshuai-qi-%E7%A5%81%E6%96%B0%E5%B8%85-ph-d--wj6dc" target="_blank" rel="noopener" class="text-blue-600 hover:underline">A New Paradigm: Generative AI in Biology</a></li>
-    <li><a href="https://www.linkedin.com/pulse/agtech-consulting-spend-breakdown-xinshuai-qi-%E7%A5%81%E6%96%B0%E5%B8%85-ph-d--epg5c/" target="_blank" rel="noopener" class="text-blue-600 hover:underline">AgTech Consulting Spend Breakdown</a></li>
-    <li><a href="https://www.linkedin.com/pulse/pharma-tech-consulting-spend-breakdown-xinshuai-qi-%E7%A5%81%E6%96%B0%E5%B8%85-ph-d--nvmvc/" target="_blank" rel="noopener" class="text-blue-600 hover:underline">Pharma Tech Consulting Spend Breakdown</a></li>
-  </ul>
+  <!-- ===== SECTION 1: THE BIG PICTURE ===== -->
+  <div class="rounded-lg px-5 py-4 mt-14 mb-6" style="background:#1D4ED8;">
+    <h2 class="text-xl font-bold text-white">The Big Picture</h2>
+    <p class="text-sm mt-0.5" style="color:#BFDBFE;">Where AI sits in history, and where physical intelligence is heading.</p>
+  </div>
 
-  <p class="text-gray-500 mt-12">Looking for my academic work? See <a href="/publication/" class="text-blue-600 hover:underline">Publications</a> — 20+ peer-reviewed papers, 4,000+ citations.</p>
+  <div class="article-group">
+
+    <article>
+      <div class="flex flex-wrap items-baseline gap-x-2 gap-y-1">
+        <a href="/ai-revolution-history/" class="text-xl font-semibold text-blue-600 hover:underline">The AI Revolution Through the Lens of History</a>
+        <span class="tag tag-blue">EN / 中文</span>
+      </div>
+      <p class="text-xs text-gray-400 mt-1">July 2026</p>
+      <p class="text-gray-700 mt-2 leading-8 text-[17px] max-w-[72ch]">What Carlota Perez&rsquo;s study of five technological revolutions predicts for AI. The pattern that repeats every time &mdash; <strong class="text-gray-900">two bubbles, not one</strong>; a burst that clears infrastructure rather than killing the technology; the 18&ndash;20 year super-cycle with its 2027&ndash;2029 shakeout window; and the four hard tests that decide which applications survive to win the next decade. Bilingual, with an in-page English&nbsp;/&nbsp;中文 toggle.</p>
+    </article>
+
+    <article class="mt-6">
+      <div class="flex flex-wrap items-baseline gap-x-2 gap-y-1">
+        <a href="https://www.linkedin.com/pulse/humanoid-hard-truth-why-home-factory-trillion-dollar-qi-%E7%A5%81%E6%96%B0%E5%B8%85-ph-d--na5bc" target="_blank" rel="noopener" class="text-xl font-semibold text-blue-600 hover:underline">Humanoid Hard Truth</a>
+        <span class="tag tag-gray">LinkedIn ↗</span>
+      </div>
+      <p class="text-xs text-gray-400 mt-1">2025</p>
+      <p class="text-gray-700 mt-2 leading-8 text-[17px] max-w-[72ch]">The cold economics and engineering constraints behind humanoid robots. Why the home and factory trillion-dollar markets are real, but the timeline is far harder than the hype suggests &mdash; and what the honest scorecard of dexterity, reliability, and cost looks like today.</p>
+    </article>
+
+    <article class="mt-6">
+      <div class="flex flex-wrap items-baseline gap-x-2 gap-y-1">
+        <a href="https://www.linkedin.com/pulse/power-human-brain-neural-network-what-most-ai-vs-qi-%E7%A5%81%E6%96%B0%E5%B8%85-ph-d--xur3c/" target="_blank" rel="noopener" class="text-xl font-semibold text-blue-600 hover:underline">The Power of Human Brain vs Neural Network</a>
+        <span class="tag tag-gray">LinkedIn ↗</span>
+      </div>
+      <p class="text-xs text-gray-400 mt-1">2024</p>
+      <p class="text-gray-700 mt-2 leading-8 text-[17px] max-w-[72ch]">A head-to-head comparison of what biological and artificial neural networks each do well &mdash; and the complementary strengths that make the case for human&ndash;AI collaboration over substitution. Most &ldquo;AI vs. humans&rdquo; framings get this wrong.</p>
+    </article>
+
+  </div>
+
+  <!-- ===== SECTION 2: ENTERPRISE AI ARCHITECTURE ===== -->
+  <div class="rounded-lg px-5 py-4 mt-14 mb-6" style="background:#4338CA;">
+    <h2 class="text-xl font-bold text-white">Enterprise AI Architecture</h2>
+    <p class="text-sm mt-0.5" style="color:#C7D2FE;">From high-level strategy to production-grade ML and LLM patterns across the enterprise.</p>
+  </div>
+
+  <div class="article-group">
+
+    <article>
+      <div class="flex flex-wrap items-baseline gap-x-2 gap-y-1">
+        <a href="/ml-map/" class="text-xl font-semibold text-blue-600 hover:underline">The Unified Enterprise ML Map</a>
+        <span class="tag tag-green">White Paper</span>
+      </div>
+      <p class="text-xs text-gray-400 mt-1">July 2026</p>
+      <p class="text-gray-700 mt-2 leading-8 text-[17px] max-w-[72ch]">A production-grade white paper mapping every major enterprise operational bottleneck &mdash; front office to back office &mdash; to the exact ML, LLM, and agentic-orchestration architecture that resolves it. Covers four dimensions: Front Office yield velocity, Core Supply Chain throughput, Back Office shared-services efficiency, and Platform Foundation governance. Each pattern pairs a probabilistic model with a deterministic boundary so that compliance behavior never depends on what the model generates.</p>
+    </article>
+
+    <article class="mt-6">
+      <div class="flex flex-wrap items-baseline gap-x-2 gap-y-1">
+        <a href="/odi/" class="text-xl font-semibold text-blue-600 hover:underline">Orchestrated Distributed Intelligence (ODI)</a>
+      </div>
+      <p class="text-xs text-gray-400 mt-1">March 2025</p>
+      <p class="text-gray-700 mt-2 leading-8 text-[17px] max-w-[72ch]">A diagram-rich, plain-language explainer of why the future of agentic AI lies not in smarter solo agents, but in orchestrating many agents together with human judgment into adaptive <em>systems of action</em>. Covers the evolution from Systems of Record &rarr; Action, the orchestration-layer architecture, and the three ingredients that make it work.</p>
+    </article>
+
+    <article class="mt-6">
+      <div class="flex flex-wrap items-baseline gap-x-2 gap-y-1">
+        <a href="https://www.linkedin.com/pulse/enterprise-architecture-generative-ai-perspective-qi-%E7%A5%81%E6%96%B0%E5%B8%85-ph-d--qeyrc" target="_blank" rel="noopener" class="text-xl font-semibold text-blue-600 hover:underline">Enterprise Architecture &amp; Generative AI Perspective</a>
+        <span class="tag tag-gray">LinkedIn ↗</span>
+      </div>
+      <p class="text-xs text-gray-400 mt-1">2024</p>
+      <p class="text-gray-700 mt-2 leading-8 text-[17px] max-w-[72ch]">A framework for mapping GenAI capabilities to enterprise architecture layers &mdash; data, integration, application, and governance &mdash; with practical patterns for where each tier creates value and where it introduces risk.</p>
+    </article>
+
+    <article class="mt-6">
+      <div class="flex flex-wrap items-baseline gap-x-2 gap-y-1">
+        <a href="https://www.linkedin.com/pulse/modern-enterprise-operating-system-systematic-guide-qi-%E7%A5%81%E6%96%B0%E5%B8%85-ph-d--lmz6c/" target="_blank" rel="noopener" class="text-xl font-semibold text-blue-600 hover:underline">The Modern Enterprise Operating System &mdash; A Systematic Guide</a>
+        <span class="tag tag-gray">LinkedIn ↗</span>
+      </div>
+      <p class="text-xs text-gray-400 mt-1">2024</p>
+      <p class="text-gray-700 mt-2 leading-8 text-[17px] max-w-[72ch]">How to think of the enterprise as an operating system: the &ldquo;kernel&rdquo; of data and compute, the middleware of integration and workflow, and the applications that run on top &mdash; and where generative AI plugs in at each layer to compound value.</p>
+    </article>
+
+  </div>
+
+  <!-- ===== SECTION 3: AGENTIC CONSULTING PRACTICE ===== -->
+  <div class="rounded-lg px-5 py-4 mt-14 mb-6" style="background:#6D28D9;">
+    <h2 class="text-xl font-bold text-white">Agentic Consulting Practice</h2>
+    <p class="text-sm mt-0.5" style="color:#DDD6FE;">How agentic AI is reshaping delivery, talent, and the consulting operating model.</p>
+  </div>
+
+  <div class="article-group">
+
+    <article>
+      <div class="flex flex-wrap items-baseline gap-x-2 gap-y-1">
+        <a href="/agentic-consulting/" class="text-xl font-semibold text-blue-600 hover:underline">A New Way of Working &mdash; Agentic Consulting</a>
+        <span class="tag tag-blue">3-Part Series</span>
+      </div>
+      <p class="text-xs text-gray-400 mt-1">June 2026</p>
+      <p class="text-gray-700 mt-2 leading-8 text-[17px] max-w-[72ch]">A three-part series on how agentic AI is reshaping the consulting operating model &mdash; rethinking delivery, talent, and the manager&rsquo;s role as a <strong class="text-gray-900">systems orchestrator</strong> of human and AI teams.</p>
+    </article>
+
+    <article class="mt-6">
+      <div class="flex flex-wrap items-baseline gap-x-2 gap-y-1">
+        <a href="https://www.linkedin.com/pulse/manager-systems-orchestrator-balancing-human-ai-qi-%E7%A5%81%E6%96%B0%E5%B8%85-ph-d--89ihc/" target="_blank" rel="noopener" class="text-xl font-semibold text-blue-600 hover:underline">Manager as Systems Orchestrator &mdash; Balancing Human and AI</a>
+        <span class="tag tag-gray">LinkedIn ↗</span>
+      </div>
+      <p class="text-xs text-gray-400 mt-1">2025</p>
+      <p class="text-gray-700 mt-2 leading-8 text-[17px] max-w-[72ch]">Why the manager&rsquo;s job is shifting from directing human work to orchestrating systems of human and AI agents &mdash; and the new mental model, decision rights, and skills that requires. The thesis that the Agentic Consulting series later expands into a full framework.</p>
+    </article>
+
+    <article class="mt-6">
+      <div class="flex flex-wrap items-baseline gap-x-2 gap-y-1">
+        <a href="/anti-bullshit-consulting/" class="text-xl font-semibold text-blue-600 hover:underline">Bullshit Consulting VS First Principle Consulting</a>
+        <span class="tag tag-blue">中文 / EN</span>
+      </div>
+      <p class="text-xs text-gray-400 mt-1">September 2026</p>
+      <p class="text-gray-700 mt-2 leading-8 text-[17px] max-w-[72ch]">A systematic deconstruction of how the consulting industry produces noise vs. real value &mdash; from role naming and untrained tacit skills to the GenAI/Physical AI value anchors, the art of saying no to pointless work, and the fundamental mindset shift from Manager to Partner. Covers first-principles frameworks for opportunity qualification, solutioning, and SOW design that protect margin and prevent project failure.</p>
+    </article>
+
+    <article class="mt-6">
+      <div class="flex flex-wrap items-baseline gap-x-2 gap-y-1">
+        <a href="/fde-immersive-week/" class="text-xl font-semibold text-blue-600 hover:underline">From Waterfall to Venn Diagrams: What a Week of Immersive FDE Work Taught Me</a>
+        <span class="tag tag-amber">Field Notes</span>
+        <span class="tag tag-blue">New</span>
+      </div>
+      <p class="text-xs text-gray-400 mt-1">September 2026</p>
+      <p class="text-gray-700 mt-2 leading-8 text-[17px] max-w-[72ch]">Lessons from 10 projects and 16 parallel pods: why AI-native delivery replaces sequential handoffs with overlapping disciplines, why every team member needs to vibe code, and what the shift means for talent, leadership, and enterprise advantage.</p>
+    </article>
+
+  </div>
+
+  <!-- ===== SECTION 4: INDUSTRY & DOMAIN DEEP DIVES ===== -->
+  <div class="rounded-lg px-5 py-4 mt-14 mb-6" style="background:#0F766E;">
+    <h2 class="text-xl font-bold text-white">Industry &amp; Domain Deep Dives</h2>
+    <p class="text-sm mt-0.5" style="color:#99F6E4;">Physical AI, biology, and how the dollars actually flow in agtech and pharma.</p>
+  </div>
+
+  <div class="article-group">
+
+    <article>
+      <div class="flex flex-wrap items-baseline gap-x-2 gap-y-1">
+        <a href="https://www.linkedin.com/pulse/coming-era-physical-ai-biopharma-xinshuai-qi-%E7%A5%81%E6%96%B0%E5%B8%85-ph-d--7gvkc/" target="_blank" rel="noopener" class="text-xl font-semibold text-blue-600 hover:underline">The Coming Era of Physical AI in Biopharma</a>
+        <span class="tag tag-gray">LinkedIn ↗</span>
+      </div>
+      <p class="text-xs text-gray-400 mt-1">2025</p>
+      <p class="text-gray-700 mt-2 leading-8 text-[17px] max-w-[72ch]">How physical AI &mdash; robots, autonomous labs, and intelligent manufacturing systems &mdash; is beginning to transform biopharma R&amp;D and production, and what it means for the industry&rsquo;s operating model and competitive dynamics.</p>
+    </article>
+
+    <article class="mt-6">
+      <div class="flex flex-wrap items-baseline gap-x-2 gap-y-1">
+        <a href="https://www.linkedin.com/pulse/new-paradigm-generative-ai-biology-xinshuai-qi-%E7%A5%81%E6%96%B0%E5%B8%85-ph-d--wj6dc" target="_blank" rel="noopener" class="text-xl font-semibold text-blue-600 hover:underline">A New Paradigm: Generative AI in Biology</a>
+        <span class="tag tag-gray">LinkedIn ↗</span>
+      </div>
+      <p class="text-xs text-gray-400 mt-1">2024</p>
+      <p class="text-gray-700 mt-2 leading-8 text-[17px] max-w-[72ch]">Generative AI isn&rsquo;t just a tool for biology &mdash; it&rsquo;s a new paradigm for how biological knowledge is encoded, searched, and generated. From protein structure prediction to genomic sequence modeling, the shift that&rsquo;s underway and what it enables.</p>
+    </article>
+
+    <article class="mt-6">
+      <div class="flex flex-wrap items-baseline gap-x-2 gap-y-1">
+        <a href="https://www.linkedin.com/pulse/agtech-consulting-spend-breakdown-xinshuai-qi-%E7%A5%81%E6%96%B0%E5%B8%85-ph-d--epg5c/" target="_blank" rel="noopener" class="text-xl font-semibold text-blue-600 hover:underline">AgTech Consulting Spend Breakdown</a>
+        <span class="tag tag-gray">LinkedIn ↗</span>
+      </div>
+      <p class="text-xs text-gray-400 mt-1">2024</p>
+      <p class="text-gray-700 mt-2 leading-8 text-[17px] max-w-[72ch]">Where agtech companies actually spend their consulting dollars &mdash; broken down by function, engagement type, and capability &mdash; with implications for how to prioritize and sequence AI investment across the agricultural value chain.</p>
+    </article>
+
+    <article class="mt-6">
+      <div class="flex flex-wrap items-baseline gap-x-2 gap-y-1">
+        <a href="https://www.linkedin.com/pulse/pharma-tech-consulting-spend-breakdown-xinshuai-qi-%E7%A5%81%E6%96%B0%E5%B8%85-ph-d--nvmvc/" target="_blank" rel="noopener" class="text-xl font-semibold text-blue-600 hover:underline">Pharma Tech Consulting Spend Breakdown</a>
+        <span class="tag tag-gray">LinkedIn ↗</span>
+      </div>
+      <p class="text-xs text-gray-400 mt-1">2024</p>
+      <p class="text-gray-700 mt-2 leading-8 text-[17px] max-w-[72ch]">An analogous breakdown for pharmaceutical technology consulting: where the dollars go, which capabilities command premium rates, and how the AI and data transformation is shifting the mix between traditional IT services and new-model AI work.</p>
+    </article>
+
+  </div>
+
+  <p class="text-gray-500 mt-14 text-[15px]">Looking for my academic work? See <a href="/publication/" class="text-blue-600 hover:underline">Publications</a> &mdash; 20+ peer-reviewed papers, 4,000+ citations.</p>
 
 </main>
 
 <footer class="border-t border-gray-200">
-  <div class="max-w-3xl mx-auto px-6 py-8 text-sm text-gray-500">
-    <p>Xinshuai Qi (Chee), Ph.D. · St. Louis, MO</p>
+  <div class="max-w-[1100px] mx-auto px-8 py-8 text-sm text-gray-500">
+    <p>Xinshuai Qi (Chee), Ph.D. &middot; St. Louis, MO</p>
     <p class="mt-1">
-      <a href="mailto:qxs718@gmail.com" class="text-blue-600 hover:underline">qxs718@gmail.com</a> ·
-      <a href="https://www.linkedin.com/in/xinshuaiqi" target="_blank" rel="noopener" class="text-blue-600 hover:underline">LinkedIn</a> ·
+      <a href="mailto:qxs718@gmail.com" class="text-blue-600 hover:underline">qxs718@gmail.com</a> &middot;
+      <a href="https://www.linkedin.com/in/xinshuaiqi" target="_blank" rel="noopener" class="text-blue-600 hover:underline">LinkedIn</a> &middot;
       <a href="https://scholar.google.com/citations?user=Fw3jawUAAAAJ&hl=en" target="_blank" rel="noopener" class="text-blue-600 hover:underline">Google Scholar</a>
     </p>
   </div>
